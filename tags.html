@@ -1,0 +1,264 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<!-- Navigation -->
+<nav class="nav-menu">
+    <ul>
+        <li><a href="{{ site.baseurl }}/" class="nav-link">← Back to Home</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Tags Page -->
+<section class="tags-page section">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title glitch" data-text="[TAGS]">[TAGS]</h1>
+            <p class="section-subtitle">Browse posts by topic</p>
+        </div>
+
+        <div class="tags-container">
+            {% assign sorted_tags = site.tags | sort %}
+            {% for tag in sorted_tags %}
+                <div class="tag-group">
+                    <h2 class="tag-title" id="{{ tag[0] | slugify }}">
+                        <span class="tag-icon">#</span>{{ tag[0] }}
+                        <span class="tag-count">({{ tag[1] | size }})</span>
+                    </h2>
+                    
+                    <div class="tag-posts">
+                        {% assign posts_by_date = tag[1] | sort: 'date' | reverse %}
+                        {% for post in posts_by_date %}
+                        <article class="tag-post-card">
+                            <div class="tag-post-header">
+                                <span class="tag-post-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+                            </div>
+                            <h3 class="tag-post-title">
+                                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+                            </h3>
+                            <p class="tag-post-excerpt">{{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}</p>
+                            <div class="tag-post-tags">
+                                {% for post_tag in post.tags %}
+                                <a href="#{{ post_tag | slugify }}" class="mini-tag">#{{ post_tag }}</a>
+                                {% endfor %}
+                            </div>
+                        </article>
+                        {% endfor %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        <!-- Tag Cloud -->
+        <div class="tag-cloud">
+            <h2 class="tag-cloud-title">Quick Navigation</h2>
+            <div class="tag-cloud-items">
+                {% for tag in sorted_tags %}
+                <a href="#{{ tag[0] | slugify }}" class="tag-cloud-item">
+                    #{{ tag[0] }} <span class="tag-cloud-count">{{ tag[1] | size }}</span>
+                </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+/* === TAGS PAGE STYLES === */
+.tags-page {
+    min-height: 100vh;
+    padding: calc(60px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
+}
+
+.tags-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.tag-group {
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: rgba(20, 29, 43, 0.5);
+    border: 1px solid rgba(0, 255, 247, 0.2);
+    border-radius: 8px;
+    position: relative;
+}
+
+.tag-group::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(
+        180deg,
+        var(--accent-cyan) 0%,
+        var(--accent-red) 100%
+    );
+    border-radius: 8px 0 0 8px;
+}
+
+.tag-title {
+    font-size: 2rem;
+    color: var(--accent-cyan);
+    margin-bottom: var(--spacing-md);
+    font-family: 'JetBrains Mono', monospace;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.tag-icon {
+    color: var(--accent-red);
+    font-size: 1.5rem;
+}
+
+.tag-count {
+    font-size: 1rem;
+    color: var(--text-main);
+    opacity: 0.7;
+}
+
+.tag-posts {
+    display: grid;
+    gap: var(--spacing-md);
+}
+
+.tag-post-card {
+    padding: var(--spacing-md);
+    background: rgba(16, 20, 26, 0.5);
+    border: 1px solid rgba(0, 255, 247, 0.1);
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.tag-post-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.1);
+    transform: translateX(5px);
+}
+
+.tag-post-header {
+    margin-bottom: 0.5rem;
+}
+
+.tag-post-date {
+    color: var(--accent-red);
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tag-post-title {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+}
+
+.tag-post-title a {
+    color: var(--text-bright);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tag-post-title a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.tag-post-excerpt {
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-sm);
+}
+
+.tag-post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.mini-tag {
+    color: var(--accent-cyan);
+    font-size: 0.85rem;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    background: rgba(0, 255, 247, 0.1);
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.mini-tag:hover {
+    background: rgba(0, 255, 247, 0.2);
+    box-shadow: 0 0 10px rgba(0, 255, 247, 0.3);
+}
+
+/* === TAG CLOUD === */
+.tag-cloud {
+    max-width: 900px;
+    margin: var(--spacing-xl) auto 0;
+    padding: var(--spacing-lg);
+    background: rgba(20, 29, 43, 0.3);
+    border: 1px solid rgba(255, 0, 60, 0.2);
+    border-radius: 8px;
+}
+
+.tag-cloud-title {
+    font-size: 1.5rem;
+    color: var(--accent-red);
+    margin-bottom: var(--spacing-md);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.tag-cloud-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.tag-cloud-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.5rem 1rem;
+    background: rgba(16, 20, 26, 0.5);
+    border: 1px solid rgba(0, 255, 247, 0.2);
+    border-radius: 20px;
+    color: var(--accent-cyan);
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tag-cloud-item:hover {
+    background: rgba(0, 255, 247, 0.1);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
+    transform: translateY(-2px);
+}
+
+.tag-cloud-count {
+    color: var(--text-main);
+    opacity: 0.7;
+    font-size: 0.85rem;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+    .tag-title {
+        font-size: 1.5rem;
+    }
+    
+    .tag-post-title {
+        font-size: 1.1rem;
+    }
+    
+    .tag-group {
+        padding: var(--spacing-md);
+    }
+}
+</style>

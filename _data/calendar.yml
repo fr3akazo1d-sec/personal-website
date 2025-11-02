@@ -1,0 +1,44 @@
+# Events Calendar
+# Add upcoming conferences, trainings, and events you're attending
+
+events:
+  - title: "DEF CON 31"
+    type: "conference"
+    date_start: 2023-08-10
+    date_end: 2023-08-13
+    location: "Las Vegas, Nevada, USA"
+    url: "https://defcon.org"
+    status: "completed"  # planned, confirmed, attending, completed
+    description: "World's largest hacking conference"
+    
+  - title: "DEF CON 33"
+    type: "conference"
+    date_start: 2025-08-07
+    date_end: 2026-08-10
+    location: "Las Vegas, Nevada, USA"
+    url: "https://defcon.org"
+    status: "completed"  # planned, confirmed, attending, completed
+    description: "World's largest hacking conference"
+    
+  - title: "24h Cybersecurity" 
+    type: "meetup"
+    date_start: 2025-11-04
+    date_en: 2025-11-05
+    location: "Lakeside Park, Klagenfurt, Carinthia, Austria"
+    url: "https://cyber-night-and-day.at"
+    status: confirmed
+    description: " Cyber-Crime and IT-Security conference"
+    
+  - title: "DEF CON 34"
+    type: "conference"
+    date_start: 2026-08-06
+    date_end: 2026-08-09
+    location: "Las Vegas, Nevada, USA"
+    url: "https://defcon.org"
+    status: "planned"  # planned, confirmed, attending, completed
+    description: "World's largest hacking conference"
+    
+  
+
+# Types: conference, training, workshop, meetup, ctf, other
+# Status: planned, confirmed, attending, completed, cancelled

@@ -1,0 +1,15 @@
+<!-- Auto-generated Blog Posts from Jekyll -->
+{% assign sorted_posts = site.posts | sort: 'date' | reverse %}
+{% for post in sorted_posts limit: 4 %}
+<article class="blog-card">
+    <div class="card-header">
+        <span class="card-date">[{{ post.date | date: "%Y-%m-%d" }}]</span>
+        <span class="card-tag">#{{ post.tags | first | default: "general" }}</span>
+    </div>
+    <h3 class="card-title">{{ post.title }}</h3>
+    <p class="card-excerpt">
+        {{ post.description | default: post.excerpt | strip_html | truncatewords: 30 }}
+    </p>
+    <a href="{{ post.url | relative_url }}" class="card-link">Read more <span class="arrow">→</span></a>
+</article>
+{% endfor %}

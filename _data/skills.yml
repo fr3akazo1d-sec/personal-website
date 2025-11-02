@@ -1,0 +1,70 @@
+# Skills Configuration
+# Organize your skills by category with proficiency levels
+# Proficiency: 1-5 (1=Beginner, 5=Expert)
+
+categories:
+  - name: Off-Sec
+    icon: terminal
+    skills:
+      - name: Penetration Testing
+        level: 4
+      - name: Red Team Ops
+        level: 3
+      - name: Social Engineering
+        level: 2
+      - name: Exploit Dev
+        level: 2
+      - name: Post-Exploitation
+        level: 4
+      - name: OSINT
+        level: 4
+        
+  - name: Coding
+    icon: code
+    skills:
+      - name: Python
+        level: 4
+      - name: Bash/Shell
+        level: 4
+      - name: PowerShell
+        level: 2
+      - name: C/C++
+        level: 1
+      - name: Rust
+        level: 2
+      - name: C#
+        level: 2
+        
+  - name: Infra
+    icon: network
+    skills:
+      - name: Proxmox
+        level: 4
+      - name: Linux Admin
+        level: 5
+      - name: Windows AD
+        level: 4
+      - name: Cloud Security
+        level: 3
+      - name: Docker/Containers
+        level: 4
+      - name: Metasploit
+        level: 4
+      - name: Sliver
+        level: 4
+        
+  - name: Special
+    icon: shield
+    skills:
+      - name: Web Application Security
+        level: 3
+      - name: Network Security
+        level: 4
+      - name: Wireless Security
+        level: 2
+      - name: Malware Analysis
+        level: 2
+      - name: Digital Forensics
+        level: 2
+      - name: Reverse Engineering
+        level: 1

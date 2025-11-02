@@ -1,0 +1,250 @@
+# Career History Configuration
+# Add your professional experience in reverse chronological order (newest first)
+
+experiences:
+  - company: Infineon Technologies 
+    role: Senior Staff Engineer Offensive Security 
+    location: Carinthia | Austria
+    start_date: 2025-04
+    end_date: present  # Use "present" for current role
+    current: true
+    description: |
+      Leading red team operations and adversary emulation exercises. Conducting advanced penetration testing 
+      and security assessments. System owner of the Red Team Infrastructure. 
+    achievements:
+      - Leading different Red Team Oberation
+      - Developting different tools for different operations
+      - Working and planining on the Red Team Infrastructure
+    technologies:
+      - Sliver, Mythic, ...
+      - Custom Tooling
+      - Active Directory
+      - Networks
+      
+  - company: Infineon Technologies
+    role: Senior Staff Specialist Offensive Security
+    location: Carinthia | Austria
+    start_date: 2024-04
+    end_date: 2025-03
+    current: false
+    description: |
+      Leading red team operations and adversary emulation exercises. Conducting advanced penetration testing 
+      and security assessments. System owner of the Red Team Infrastructure. 
+    achievements:
+      - Leading different Red Team Oberation
+      - Developting different tools for different operations
+      - Working and planining on the Red Team Infrastructure
+    technologies:
+      - Sliver, Mythic, ...
+      - Custom Tooling
+      - Active Directory
+      - Networks
+      
+  - company: Infineon Technologies 
+    role: Staff Specialist Cyber-Security
+    location: Carinthia | Austria
+    start_date: 2022-07
+    end_date: 2024-03
+    current: false
+    description: |
+      Leading red team operations and adversary emulation exercises. Conducting advanced penetration testing 
+      and security assessments. System owner of the Red Team Infrastructure. 
+    achievements:
+      - Leading different Red Team Oberation
+      - Developting different tools for different operations
+      - Working and planining on the Red Team Infrastructure
+    technologies:
+      - Sliver, Mythic, ...
+      - Custom Tooling
+      - Active Directory
+      - Networks
+
+  - company: Atos
+    role: Cyber-Security Analyst
+    location: Carinthia | Austria
+    start_date: 2021-03
+    end_date: 2022-06
+    current: false
+    description: |
+      Started the carrer in Cyber-Security as an analyst. Worked in the first line of deffense. 
+    achievements:
+      - Successfully blocked threats against client infrastructure
+      - Contributed to internal security tooling
+    technologies:
+      - TheHive
+      - Python
+      - EDR - Solution
+      - Linux Administration
+      
+  - company: Atos
+    role: Network-Engineer
+    location: Villach | Austria
+    start_date: 2017-05
+    end_date: 2021-02
+    current: false
+    description: |
+      Worked as an On-site network engineer. Responsible for 200+ swtiches. Productive and office environment. 
+      Planing of Downtimes and replacements. On-Call 7 days 24 hours. 
+    achievements:
+      - Planing and configuration of Production building with 125 switches. 
+      - Changes in LAN-Infrastructe without any downtime. 
+      - Obtained CCNA-Security and CCNA-Routing/Switching certification
+    technologies:
+      - Cisco 
+      - Python
+      - Routing and Switching
+ 
+      
+  - company: Software Cube
+    role: Software Devolper
+    location: Villach | Austria
+    start_date: 2016-08
+    end_date: 2017-04
+    current: false
+    description: |
+      Worked on a business applications for a production site. Witch handles the boxes for the equipments. 
+      Fully automated tracking software, witch checks in which place the boxes is placed. 
+    achievements:
+      - build custom software
+
+    technologies:
+      - C#
+      - SQL-Database
+
+  - company: addIT
+    role: Scripting & Packaging
+    location: Charinthia | Austria
+    start_date: 2014-07
+    end_date: 2016-07
+    current: false
+    description: |
+      Responsible for automated installation packages for global customers. 
+
+    technologies:
+      - C#
+      
+  - company: Infineon Technologies
+    role: Scripting & Packaging
+    location: Charinthia | Austria
+    start_date: 2010-08
+    end_date: 2014-06
+    current: false
+    description: |
+      Responsible for automated installation packages for global customers. 
+
+    technologies:
+      - C#
+      
+  - company: Wild Austria
+    role: Surface technician
+    location: Voelkermarkt | Austria
+    start_date: 2001-08
+    end_date: 2010-07
+    current: false
+    description: |
+      Working with chemicals and makeing surfaces better. Responsible for Nickel surface and Chrome surface
+
+
+# Certifications
+# Add your certifications with date obtained
+certifications:
+  - name: eJPT
+    full_name: Junior Penetration Tester
+    issuer: INE
+    date: 2021-08
+    credential_id: 81522452
+    
+  - name: CCNA Security
+    full_name: Cisco Certified Network Associate Security
+    issuer: Cisco
+    date: 2019-10
+    credential_id: "CSCO13278827"
+    
+  - name: CCNA R/S
+    full_name: Cisco Certified Network Associate Routing and Switching
+    issuer: Cisco
+    date: 2018-05
+    credential_id: "CSCO13278827"
+
+# Professional Courses & Training
+courses:
+  - name: SANS SEC565
+    full_name: Red Team Operations and Adversary Emulation
+    provider: SANS Institute
+    date: 2025-10
+    description: Advanced red team tactics and adversary simulation
+    
+  - name: CRTP
+    full_name: Certified Red Team Professional
+    provider: Altered Security
+    date: 2022-03
+    description: Attacking and Defending Active Directory (Certified Red Team Professional)
+    
+  - name: DEF CON 32 Workshop
+    full_name: Putting EDRs in Their Place - Killing and Silencing EDR Agents
+    provider: DEF CON
+    date: 2025-08
+    description: Bybassing EDRs. 
+    
+  - name: DEF CON 32 Workshop
+    full_name: Obfuscation Reloaded - Modern Techniques for Evading Detection
+    provider: DEF CON
+    date: 2025-08
+    description: Obfuscation code for bybassing EDRs. 
+
+# Learning Platforms
+# Track your journey on various hacking/learning platforms
+learning_platforms:
+  - name: HackTheBox
+    profile_url: https://app.hackthebox.com/profile/307465
+    joined_date: 2020-07
+    rank: Hacker  # Your current rank
+    stats: "Global Rank: 966"
+    
+  - name: HackTheBox - Acadmey
+    profile_url: https://academy.hackthebox.com
+    joined_date: 2022-07
+    rank: Silver Plan  # Your current rank
+    stats: "AD Pentester 13.4%"
+    
+  - name: TryHackMe
+    profile_url: https://tryhackme.com/p/Fr3akazo1d
+    joined_date: 2020-04
+    rank: "GUARDIAN Level 14 [0xE]"
+    stats: "Global Rank: 3023"
+    
+  - name: Hacksmarter
+    profile_url: https://www.hacksmarter.org
+    joined_date: 2025-10
+    rank: Pro Member
+    stats: "Hands-On Labs"
+    
+  - name: PortSwigger Academy
+    profile_url: https://portswigger.net/web-security
+    joined_date: 2023-03
+    rank: ""
+    stats: ""
+    
+  - name: Blue Team Labs
+    profile_url: https://blueteamlabs.online/public/user/b97bc149cd0050663fa4a4
+    joined_date: 2021-04
+    rank: "Initiate"
+    stats: "Global Position: 4017"
+
+# Optional: Add key career milestones
+milestones:
+  - year: 2024
+    title: Senior Red Team Operator
+    description: Promoted to lead red team operations
+    
+  - year: 2023
+    title: CRTO Certified
+    description: Obtained Certified Red Team Operator certification
+    
+  - year: 2021
+    title: OSCP Certified
+    description: Passed Offensive Security Certified Professional exam
+    
+  - year: 2018
+    title: Career Start
+    description: Began professional journey in cybersecurity

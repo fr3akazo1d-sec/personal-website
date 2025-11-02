@@ -1,0 +1,268 @@
+# Gallery Configuration
+# Organize your photos into different events/categories
+
+galleries:
+
+
+  - name: DEFCON 33
+    slug: defcon-33
+    date: 2025-08-05
+    location: Las Vegas, USA
+    description: DEFCON Conference 2025, LAS VEGAS, USA
+    cover_image: /assets/images/gallery/defcon-33/cover.jpg
+    visible: true
+    photos:
+      - image: /assets/images/gallery/defcon-33/photo-001.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-002.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-003.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-004.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-005.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-006.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-007.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-008.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-009.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-010.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-011.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-012.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-013.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-014.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-015.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-016.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-017.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-018.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-019.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-020.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-021.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-022.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-023.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-024.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-025.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-026.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-027.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-028.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-029.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-030.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-031.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-032.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-033.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-034.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-035.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-036.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-037.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-038.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-039.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-040.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-041.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-042.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-043.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-044.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-045.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-046.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-047.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-048.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+      - image: /assets/images/gallery/defcon-33/photo-049.jpeg
+        caption: Photo from DEFCON 33
+        date: 2025-08-05
+
+
+  - name: DEFCON 31
+    slug: defcon-31
+    date: 2023-08-06
+    location: Las Vegas, USA
+    description: DEFCON Converence 2023, LAS VEGAS, USA
+    cover_image: /assets/images/gallery/defcon-31/cover.jpg
+    visible: true
+    photos:
+      - image: /assets/images/gallery/defcon-31/photo-001.jpg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-002.jpg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-003.jpg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-004.jpg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-005.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-006.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-007.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-008.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-009.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-010.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-011.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-012.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-013.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-014.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-015.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-016.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-017.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-018.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-019.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-020.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-021.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-022.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-023.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-024.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-025.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-026.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-027.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-028.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-029.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-030.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-031.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+      - image: /assets/images/gallery/defcon-31/photo-032.jpeg
+        caption: Photo from DEFCON 31
+        date: 2023-08-06
+

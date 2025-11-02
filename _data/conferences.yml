@@ -1,0 +1,27 @@
+# Conferences & Events
+# Security conferences, workshops, and events attended
+
+conferences:
+  - name: DEF CON 32
+    location: Las Vegas, USA
+    date: 2024-08
+    year: 2024
+    type: Conference
+    activities:
+      - Attended advanced red team workshops
+      - Attended DefCon workshops
+      - Networking with security professionals
+    highlights: ""
+    
+  - name: DEF CON 30
+    location: Las Vegas, USA
+    date: 2022-08
+    year: 2022
+    type: Conference + Workshop
+    activities:
+      - RedTeam Village Workshop
+      - Defcon Talks
+      - Car hacking sessions
+    highlights: ""
+    
+    

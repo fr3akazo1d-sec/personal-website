@@ -1,0 +1,93 @@
+---
+layout: default
+title: Conferences
+permalink: /conferences/
+description: Security conferences, CTFs, and events I've attended
+---
+
+<!-- Navigation Menu -->
+<nav class="nav-menu" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--bg-main); border-bottom: 1px solid rgba(0, 255, 247, 0.2); padding: 1rem 0;">
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    <ul>
+        <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#about" class="nav-link">About</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#career" class="nav-link">Career</a></li>
+        <li><a href="{{ site.baseurl }}/conferences/" class="nav-link active">Conferences</a></li>
+        <li><a href="{{ site.baseurl }}/gallery/" class="nav-link">Gallery</a></li>
+        <li><a href="{{ site.baseurl }}/calendar/" class="nav-link">Calendar</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="{{ site.baseurl }}/tags/" class="nav-link">Tags</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="conferences" class="section" style="margin-top: 80px;">
+    <div class="container">
+        <h1 class="section-title glitch" data-text="$ grep -r 'attended' conferences.log"># grep -r 'attended' conferences.log</h1>
+        <p class="section-description">Security conferences, CTFs, and community events I've participated in</p>
+        
+        {% if site.data.conferences.conferences %}
+        <!-- Group conferences by year -->
+        {% assign conferences_by_year = site.data.conferences.conferences | group_by: "year" | sort: "name" | reverse %}
+        
+        {% for year_group in conferences_by_year %}
+        <div class="conference-year-group">
+            <h3 class="conference-year">{{ year_group.name }}</h3>
+            
+            <div class="conferences-grid">
+                {% for conference in year_group.items %}
+                <div class="conference-card">
+                    <div class="conf-header">
+                        <div class="conf-name">{{ conference.name }}</div>
+                        <div class="conf-type">{{ conference.type }}</div>
+                    </div>
+                    
+                    <div class="conf-location">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="location-icon">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                            <circle cx="12" cy="10" r="3"/>
+                        </svg>
+                        {{ conference.location }}
+                    </div>
+                    <div class="conf-date">{{ conference.date }}</div>
+                    
+                    {% if conference.activities %}
+                    <div class="conf-activities">
+                        <strong>Activities:</strong>
+                        <ul>
+                            {% for activity in conference.activities %}
+                            <li>{{ activity }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                    
+                    {% if conference.highlights %}
+                    <div class="conf-highlights">
+                        <strong>Highlights:</strong>
+                        <ul>
+                            {% for highlight in conference.highlights %}
+                            <li>{{ highlight }}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% endif %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        
+        {% else %}
+        <div class="empty-state">
+            <p>No conferences data available.</p>
+        </div>
+        {% endif %}
+    </div>
+</section>

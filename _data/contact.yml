@@ -1,0 +1,32 @@
+# Contact Information
+# Edit your contact details here
+
+intro:
+  description: "Let's connect and collaborate on security research, penetration testing, or cybersecurity projects."
+  tagline: "Ready to discuss your next challenge"
+
+# Contact cards
+contacts:
+  - title: Email
+    text: fr3akazo1d@malle.red
+    url: mailto:philipp@fr3akazo1d.dev
+    label: Primary Contact
+    icon: email
+    
+  - title: GitHub
+    text: "@fr3akazo1d-sec"
+    url: https://github.com/fr3akazo1d-sec
+    label: Open Source Projects
+    icon: github
+    
+  - title: LinkedIn
+    text: in/philmalle
+    url: https://linkedin.com/in/philmalle
+    label: Professional Network
+    icon: linkedin
+    
+  - title: Discord
+    text: "fr3akazo1d"
+    url: https://discord.com/users/694814050474917938
+    label: Instant messaging
+    icon: discord

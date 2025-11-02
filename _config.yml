@@ -1,0 +1,101 @@
+# Site Settings
+title: fr3akazo1d
+email: fr3akazo1d@malle.red
+description: >-
+  Sometimes I feel like giving up, then I remember I have a lot of people to prove wrong.
+  Red Team Operator & Security Researcher specializing in adversary emulation and offensive security.
+baseurl: "" # Leave empty for username.github.io, use "/repo-name" for project pages
+url: "https://fr3akazo1d.github.io"
+
+# Author
+author:
+  name: Phil
+  email: fr3akazo1d@malle.red
+  github: fr3akazo1d-sec
+  twitter: fr3akazo1d
+  linkedin: philmalle
+
+# Site Motto
+motto: "Sometimes I feel like giving up, then I remember I have a lot of people to prove wrong."
+
+# Build Settings
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: 'highlight'
+
+permalink: /blog/:title/
+timezone: Europe/Vienna
+
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /blog/:title/
+
+# Pagination
+paginate: 6
+paginate_path: "/blog/page:num/"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+
+# Exclude from processing
+exclude:
+  - convert_blog.py
+  - quickstart.sh
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - DEPLOYMENT.md
+  - JEKYLL_SETUP.md
+  - PROJECT_SUMMARY.md
+  - LAUNCH_CHECKLIST.md
+  - START_HERE.md
+  - blog/README.md
+  - blog/MARKDOWN_GUIDE.md
+  - blog/QUICK_REFERENCE.md
+  - blog/template.md
+
+# Include
+include:
+  - _pages
+
+# Defaults
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "fr3akazo1d"
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+# SEO
+twitter:
+  username: fr3akazo1d
+  card: summary_large_image
+
+social:
+  name: fr3akazo1d
+  links:
+    - https://twitter.com/fr3akazo1d
+    - https://github.com/fr3akazo1d-sec
+    - https://linkedin.com/in/philmalle
+
+# Reading time calculation (words per minute)
+words_per_minute: 200

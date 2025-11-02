@@ -1,0 +1,41 @@
+# About Me Configuration
+# Edit this file to update your about section
+
+description: |
+  I’m Phil — but in the wild, you’ll find me as Fr3akazo1d.
+  
+  I break systems, not for chaos, but to make them bulletproof.
+  Offensive security is my battlefield, Red Team ops my weapon of choice.
+  I design and maintain Red Team infrastructure, build custom tools, and sharpen my edge with exploit development.
+  Always learning, always evolving — from HackTheBox Pro Labs, HTB Academy, and HackSmarter to a never-ending to-do list of skills and projects.
+  If it runs code, I’ll find a way in. If it’s patched, I’ll craft the exploit.
+
+  Beyond the Terminal
+  Off the cyber grid, life runs its own high-availability cluster.
+  I’ve got a loving wife ❤️, two awesome kids 👨‍👩‍👧‍👦, a dog 🐕, and two cats 🐈🐈 running their own chaos ops.
+  Add a house to maintain 🏠, and yeah… free time is basically a zero-day exploit.
+  
+  When I do find a gap in the schedule, I fire up Minecraft with my oldest son — building worlds instead of pwning them.
+  
+  And if I get some time just for me?
+  You’ll catch me in my homelab, tweaking Wi-Fi and LAN like a live exploit chain.
+  Breaking configs, optimizing performance, and occasionally nuking the internet at home (my wife is definitely not thrilled when “upgrade” = outage 😅).
+  Oh, and yes — I run my own Proxmox cluster (3 nodes strong 💪), play with tool development, and keep a Pi-hole for DNS (which my wife refuses to use because Google Ads must survive on her phone 🤷‍♂️).
+  Plus, grinding through HackTheBox Pro Labs, HTB Academy, and HackSmarter, all while staring at a to-do list that looks like an endless recon scan.
+
+focus_areas:
+  - Red Team Operations & Adversary Emulation
+  - Offensive Infrastructure Engineering (Proxmox Cluster, C2, VPN)
+  - Custom Tool Development & Automation
+  - Exploit Development & Reverse Engineering
+  - Security Research & Vulnerability Hunting
+  - Continuous Learning (HackTheBox Pro Labs, HTB Academy, HackSmarter)
+  - Homelab Experiments (Wi-Fi/LAN tweaks, Pi-hole DNS, breaking & fixing configs)
+  - Loving Wife ❤️ — Mission Control, keeps the chaos contained
+  - Two Kids 👨‍👩‍👧‍👦 — Junior Operators, always in active mode
+  - Dog 🐕 — Physical Security, alerts on every packet (and squirrel)
+  - Two Cats 🐈🐈 — Stealth Agents, operating in silent mode
+  - House Maintenance 🏠 — Real-world patching, uptime never guaranteed
+  - Minecraft Missions 🎮 — Co-op ops with my oldest son, building instead of breaking
+
+motto: "Sometimes I feel like giving up, then I remember I have a lot of people to prove wrong."

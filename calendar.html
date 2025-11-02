@@ -1,0 +1,168 @@
+---
+layout: default
+title: Calendar
+permalink: /calendar/
+description: Upcoming conferences, trainings, and security events I'm attending
+---
+
+<!-- Navigation Menu -->
+<nav class="nav-menu" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--bg-main); border-bottom: 1px solid rgba(0, 255, 247, 0.2); padding: 1rem 0;">
+    <button class="mobile-menu-toggle" aria-label="Toggle menu" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+    </button>
+    <ul>
+        <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#about" class="nav-link">About</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#career" class="nav-link">Career</a></li>
+        <li><a href="{{ site.baseurl }}/conferences/" class="nav-link">Conferences</a></li>
+        <li><a href="{{ site.baseurl }}/gallery/" class="nav-link">Gallery</a></li>
+        <li><a href="{{ site.baseurl }}/calendar/" class="nav-link active">Calendar</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="{{ site.baseurl }}/tags/" class="nav-link">Tags</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<section id="calendar" class="section" style="margin-top: 80px;">
+    <div class="container">
+        <h1 class="section-title glitch" data-text="$ cal 2025-2026"># cal 2025-2026</h1>
+        <p class="section-description">Upcoming conferences, trainings, and security events</p>
+        
+        <!-- Current Month Overview -->
+        <div class="calendar-overview">
+            <h2 class="calendar-subtitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; display: inline-block; vertical-align: middle;">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                    <line x1="16" y1="2" x2="16" y2="6"/>
+                    <line x1="8" y1="2" x2="8" y2="6"/>
+                    <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+                Upcoming Events
+            </h2>
+        </div>
+
+        <!-- Events Timeline -->
+        <div class="calendar-timeline">
+            {% assign sorted_events = site.data.calendar.events | sort: 'date_start' %}
+            {% assign now = 'now' | date: '%s' %}
+            
+            {% for event in sorted_events %}
+                {% assign event_date = event.date_start | date: '%s' %}
+                {% assign is_upcoming = false %}
+                {% if event_date >= now or event.status == 'attending' %}
+                    {% assign is_upcoming = true %}
+                {% endif %}
+                
+                {% if is_upcoming %}
+                <div class="calendar-event" data-status="{{ event.status }}" data-type="{{ event.type }}">
+                    <div class="event-date">
+                        <div class="event-month">{{ event.date_start | date: "%b" }}</div>
+                        <div class="event-day">{{ event.date_start | date: "%d" }}</div>
+                        <div class="event-year">{{ event.date_start | date: "%Y" }}</div>
+                    </div>
+                    
+                    <div class="event-details">
+                        <div class="event-header">
+                            <h3 class="event-title">
+                                {% if event.url %}
+                                <a href="{{ event.url }}" target="_blank" rel="noopener">{{ event.title }}</a>
+                                {% else %}
+                                {{ event.title }}
+                                {% endif %}
+                            </h3>
+                            <span class="event-status status-{{ event.status }}">{{ event.status }}</span>
+                        </div>
+                        
+                        <div class="event-meta">
+                            <span class="event-type">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="12" cy="7" r="4"/>
+                                </svg>
+                                {{ event.type | capitalize }}
+                            </span>
+                            
+                            <span class="event-location">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                {{ event.location }}
+                            </span>
+                            
+                            {% if event.date_end and event.date_end != event.date_start %}
+                            <span class="event-duration">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                                {{ event.date_start | date: "%b %d" }} - {{ event.date_end | date: "%b %d, %Y" }}
+                            </span>
+                            {% endif %}
+                        </div>
+                        
+                        {% if event.description %}
+                        <p class="event-description">{{ event.description }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Past Events Summary -->
+        <div class="calendar-past">
+            <h2 class="calendar-subtitle">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 24px; height: 24px; display: inline-block; vertical-align: middle;">
+                    <polyline points="1 4 1 10 7 10"/>
+                    <path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/>
+                </svg>
+                Past Events
+            </h2>
+            
+            <div class="calendar-past-list">
+                {% for event in sorted_events %}
+                    {% assign event_date = event.date_start | date: '%s' %}
+                    {% if event_date < now and event.status == 'completed' %}
+                    <div class="past-event-item">
+                        <span class="past-event-date">{{ event.date_start | date: "%b %Y" }}</span>
+                        <span class="past-event-title">{{ event.title }}</span>
+                        <span class="past-event-location">{{ event.location }}</span>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Quick Stats -->
+        <div class="calendar-stats">
+            {% assign upcoming_count = 0 %}
+            {% assign completed_count = 0 %}
+            {% for event in site.data.calendar.events %}
+                {% assign event_date = event.date_start | date: '%s' %}
+                {% if event_date >= now %}
+                    {% assign upcoming_count = upcoming_count | plus: 1 %}
+                {% elsif event.status == 'completed' %}
+                    {% assign completed_count = completed_count | plus: 1 %}
+                {% endif %}
+            {% endfor %}
+            
+            <div class="stat-box">
+                <div class="stat-number">{{ upcoming_count }}</div>
+                <div class="stat-label">Upcoming</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{{ completed_count }}</div>
+                <div class="stat-label">Completed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">{{ site.data.calendar.events.size }}</div>
+                <div class="stat-label">Total Events</div>
+            </div>
+        </div>
+    </div>
+</section>
