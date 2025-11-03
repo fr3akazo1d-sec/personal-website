@@ -2,16 +2,19 @@
 # Security conferences, workshops, and events attended
 
 conferences:
-  - name: DEF CON 32
+  - name: DEF CON 33
     location: Las Vegas, USA
-    date: 2024-08
-    year: 2024
+    date: 2025-08
+    year: 2025
     type: Conference
     activities:
       - Attended advanced red team workshops
       - Attended DefCon workshops
       - Networking with security professionals
-    highlights: ""
+    highlights: 
+      - Meeting with the OS-Community (AthenaOS)
+      - 2 Workshops
+      - 2 DefCon Partys (Defcon-Pool Party and Red Team Party)
     
   - name: DEF CON 30
     location: Las Vegas, USA
