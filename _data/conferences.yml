@@ -15,6 +15,17 @@ conferences:
       - Meeting with the OS-Community (AthenaOS)
       - 2 Workshops
       - 2 DefCon Partys (Defcon-Pool Party and Red Team Party)
+
+  - name: 24h CyberSecurity
+    location: Klagenfurt, Austria
+    date: 2025-11
+    year: 2025
+    type: Meetup
+    activities:
+      - Talks about CyberSecruity
+      - Networking
+    highlights: 
+
     
   - name: DEF CON 30
     location: Las Vegas, USA
