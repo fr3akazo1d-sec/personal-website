@@ -1053,8 +1053,12 @@ footer {
 .footer-logo {
     font-size: 3rem;
     font-weight: 700;
-    font-family: cursive;
+    font-family: 'Orbitron', sans-serif;
     margin-bottom: var(--spacing-sm);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.2rem;
 }
 
 .footer-motto {
