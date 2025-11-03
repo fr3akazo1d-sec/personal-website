@@ -560,6 +560,16 @@ header::before {
     min-height: 100vh;
     padding: var(--spacing-xl) 0;
     position: relative;
+    padding-top: calc(80px + var(--spacing-xl));
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
+}
+
+#career {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: block !important;
 }
 
 .section-title {
@@ -1175,7 +1185,7 @@ footer {
 }
 
 .section {
-    animation: fadeIn 1s ease-out;
+    opacity: 1;
 }
 
 /* === SKILLS SECTION === */
@@ -1488,6 +1498,8 @@ footer {
     max-width: 1000px;
     margin: 0 auto;
     padding: var(--spacing-lg) 0;
+    opacity: 1 !important;
+    visibility: visible !important;
 }
 
 .timeline-item {
