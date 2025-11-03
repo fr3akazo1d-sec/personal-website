@@ -3,6 +3,18 @@
 
 items:
 
+  - title: "WMIOps"
+    url: "https://github.com/RedSiege/WMIOps"
+    description: "WMIOps is a powershell script that uses WMI to perform a variety of actions on hosts, local or remote, within a Windows environment. It's designed primarily for use on penetration tests or red team engagements"
+    category: "tools"
+    date: "2025-11-03"
+    tags:
+      - wmi
+      - ops
+      - windows
+      - penetration test
+      - red team
+
   - title: "Sattelite"
     url: "https://github.com/t94j0/satellite/tree/master"
     description: "Satellite is an web payload hosting service which filters requests to ensure the correct target is getting a payload. This can also be a useful service for hosting files that should be only accessed in very specific circumstances."

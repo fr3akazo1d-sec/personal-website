@@ -409,9 +409,29 @@ preview_site() {
     echo ""
     echo "=== 🔍 Starting Jekyll Server ==="
     echo ""
+    echo "Choose server mode:"
+    echo "  [1] Localhost only (127.0.0.1)"
+    echo "  [2] Network accessible (0.0.0.0)"
+    echo ""
+    read -p "Select mode (1/2): " -n 1 server_mode
+    echo ""
+    echo ""
     echo "Press Ctrl+C to stop the server"
     echo ""
-    bundle exec jekyll serve --livereload
+    
+    if [ "$server_mode" = "2" ]; then
+        echo "Starting server on 0.0.0.0:4000 (accessible from network)"
+        echo "You can access it from:"
+        echo "  - Local: http://localhost:4000"
+        echo "  - Network: http://$(hostname -I | awk '{print $1}'):4000"
+        echo ""
+        bundle exec jekyll serve --host 0.0.0.0 --livereload
+    else
+        echo "Starting server on localhost:4000 (local only)"
+        echo ""
+        bundle exec jekyll serve --livereload
+    fi
+    
     read -p "Press Enter to continue..."
 }
 

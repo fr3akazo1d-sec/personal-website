@@ -63,3 +63,12 @@ temp/
 notes.txt
 TODO.md
 scratch.md
+
+# Jekyll Build Files
+_site/
+.bundle/
+vendor/
+
+# Ruby/Bundler
+.ruby-version
+.ruby-gemset

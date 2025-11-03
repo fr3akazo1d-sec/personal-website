@@ -17,17 +17,81 @@ CYAN='\033[0;36m'
 YELLOW='\033[1;33m'
 NC='\033[0m' # No Color
 
+# Detect OS
+echo -e "${CYAN}→ Detecting operating system...${NC}"
+if [[ "$OSTYPE" == "darwin"* ]]; then
+    OS="macos"
+    echo -e "${GREEN}✓ macOS detected${NC}"
+elif [ -f /etc/arch-release ]; then
+    OS="arch"
+    echo -e "${GREEN}✓ Arch Linux detected${NC}"
+elif [ -f /etc/debian_version ]; then
+    OS="debian"
+    echo -e "${GREEN}✓ Debian/Ubuntu detected${NC}"
+elif [ -f /etc/fedora-release ]; then
+    OS="fedora"
+    echo -e "${GREEN}✓ Fedora detected${NC}"
+elif [ -f /etc/redhat-release ]; then
+    OS="rhel"
+    echo -e "${GREEN}✓ RHEL/CentOS detected${NC}"
+else
+    OS="unknown"
+    echo -e "${YELLOW}⚠ Unknown OS, will attempt generic installation${NC}"
+fi
+
 # Check if Ruby is installed
 echo -e "${CYAN}→ Checking Ruby installation...${NC}"
 if ! command -v ruby &> /dev/null; then
-    echo -e "${RED}✗ Ruby is not installed${NC}"
+    echo -e "${YELLOW}⚠ Ruby is not installed${NC}"
     echo ""
-    echo "Please install Ruby first:"
-    echo "  macOS:   brew install ruby"
-    echo "  Ubuntu:  sudo apt install ruby-full build-essential"
-    echo "  Fedora:  sudo dnf install ruby ruby-devel"
-    echo ""
-    exit 1
+    
+    # Auto-install Ruby based on OS
+    case $OS in
+        macos)
+            echo -e "${CYAN}→ Installing Ruby via Homebrew...${NC}"
+            if ! command -v brew &> /dev/null; then
+                echo -e "${RED}✗ Homebrew not found. Please install it first:${NC}"
+                echo "  /bin/bash -c \"\$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)\""
+                exit 1
+            fi
+            brew install ruby
+            ;;
+        arch)
+            echo -e "${CYAN}→ Installing Ruby and dependencies...${NC}"
+            sudo pacman -S --noconfirm ruby base-devel
+            ;;
+        debian)
+            echo -e "${CYAN}→ Installing Ruby and dependencies...${NC}"
+            sudo apt update
+            sudo apt install -y ruby-full build-essential zlib1g-dev
+            ;;
+        fedora)
+            echo -e "${CYAN}→ Installing Ruby and dependencies...${NC}"
+            sudo dnf install -y ruby ruby-devel @development-tools
+            ;;
+        rhel)
+            echo -e "${CYAN}→ Installing Ruby and dependencies...${NC}"
+            sudo yum install -y ruby ruby-devel gcc gcc-c++ make
+            ;;
+        *)
+            echo -e "${RED}✗ Cannot auto-install Ruby on this system${NC}"
+            echo ""
+            echo "Please install Ruby manually:"
+            echo "  macOS:   brew install ruby"
+            echo "  Ubuntu:  sudo apt install ruby-full build-essential zlib1g-dev"
+            echo "  Arch:    sudo pacman -S ruby base-devel"
+            echo "  Fedora:  sudo dnf install ruby ruby-devel @development-tools"
+            echo ""
+            exit 1
+            ;;
+    esac
+    
+    # Verify installation
+    if ! command -v ruby &> /dev/null; then
+        echo -e "${RED}✗ Ruby installation failed${NC}"
+        exit 1
+    fi
+    echo -e "${GREEN}✓ Ruby installed successfully${NC}"
 fi
 
 RUBY_VERSION=$(ruby -v | awk '{print $2}')
