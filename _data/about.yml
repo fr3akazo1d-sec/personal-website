@@ -22,21 +22,20 @@ description: |
   Plus, grinding through HackTheBox Pro Labs, HTB Academy, and HackSmarter — all while staring at a to-do list that looks like an endless recon scan.
   And yes… the most reliable device in my entire home network? The coffee machine. Zero downtime, maximum throughput.
 
-  Focus Areas
-
-  - Red Team Operations & Adversary Emulation
-  - Offensive Infrastructure Engineering (Proxmox Cluster, C2, VPN)
-  - Custom Tool Development & Automation
-  - Exploit Development & Reverse Engineering
-  - Security Research & Vulnerability Hunting
-  - Continuous Learning (HackTheBox Pro Labs, HTB Academy, HackSmarter)
-  - Homelab Experiments (Wi-Fi/LAN tweaks, Pi-hole DNS, breaking & fixing configs)
-  - Loving Wife ❤️ — Mission Control, keeps the chaos contained
-  - Two Kids 👨‍👩‍👧‍👦 — Junior Operators, always in active mode
-  - Dog 🐕 — Physical Security, alerts on every packet (and squirrel)
-  - Two Cats 🐈🐈 — Stealth Agents, operating in silent mode
-  - House Maintenance 🏠 — Real-world patching, uptime never guaranteed
-  - Minecraft Missions 🎮 — Co-op ops with my oldest son, building instead of breaking
-  - Energy Stack: Coffee ☕ + Monster ⚡ + Mate 🍵 — because even hackers need redundancy
+  focus_areas:
+    - Red Team Operations & Adversary Emulation
+    - Offensive Infrastructure Engineering (Proxmox Cluster, C2, VPN)
+    - Custom Tool Development & Automation
+    - Exploit Development & Reverse Engineering
+    - Security Research & Vulnerability Hunting
+    - Continuous Learning (HackTheBox Pro Labs, HTB Academy, HackSmarter)
+    - Homelab Experiments (Wi-Fi/LAN tweaks, Pi-hole DNS, breaking & fixing configs)
+    - Loving Wife ❤️ — Mission Control, keeps the chaos contained
+    - Two Kids 👨‍👩‍👧‍👦 — Junior Operators, always in active mode
+    - Dog 🐕 — Physical Security, alerts on every packet (and squirrel)
+    - Two Cats 🐈🐈 — Stealth Agents, operating in silent mode
+    - House Maintenance 🏠 — Real-world patching, uptime never guaranteed
+    - Minecraft Missions 🎮 — Co-op ops with my oldest son, building instead of breaking
+    - Energy Stack: Coffee ☕ + Monster ⚡ + Mate 🍵 — because even hackers need redundancy
 
 motto: "Sometimes I feel like giving up, then I remember I have a lot of people to prove wrong."
