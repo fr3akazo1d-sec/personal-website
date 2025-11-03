@@ -637,6 +637,15 @@ header::before {
     margin-right: 0.5rem;
 }
 
+.prompt-user {
+    color: var(--accent-cyan);
+}
+
+.prompt-path {
+    color: var(--accent-red);
+    margin-right: 0.5rem;
+}
+
 .command-line {
     margin: 0.8rem 0;
     font-family: 'JetBrains Mono', monospace;
@@ -1088,6 +1097,12 @@ footer {
     opacity: 0.6;
     font-size: 0.9rem;
     margin-top: var(--spacing-md);
+}
+
+.footer-username {
+    color: var(--accent-cyan);
+    font-weight: 600;
+    opacity: 1;
 }
 
 /* === RESPONSIVE === */
