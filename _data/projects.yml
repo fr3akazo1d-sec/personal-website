@@ -1,55 +1,17 @@
 # Projects Configuration
 # Add or edit projects here. They will automatically appear on your homepage.
 
-- name: ShadowShell
-  description: Custom C2 framework with encrypted communications, command execution, and persistence mechanisms for red team operations.
+- name: Jykell Theme
+  description: Custom Jekyll theme based on my colors and style of my F! logo
   tags:
-    - Python
-    - C2
-    - Red Team
-  github_url: https://github.com/fr3akazo1d/shadowshell
-  icon: terminal
-  visible: false
-  
-- name: PhishKit Pro
-  description: Advanced phishing framework with real-time credential harvesting, 2FA bypass techniques, and anti-detection evasion.
-  tags:
-    - JavaScript
-    - Social Engineering
-    - Web
-  github_url: https://github.com/fr3akazo1d/phishkit-pro
-  icon: shield
-  visible: false
-  
-- name: RedRecon
-  description: Automated reconnaissance toolkit that combines subdomain enumeration, port scanning, and vulnerability assessment for efficient target profiling.
-  tags:
-    - Go
-    - Recon
-    - Automation
-  github_url: https://github.com/fr3akazo1d/redrecon
-  icon: network
-  visible: false
-  
-- name: PrivEscHelper
-  description: Cross-platform privilege escalation enumeration script that identifies misconfigurations and potential escalation paths on Windows and Linux.
-  tags:
-    - Bash
-    - PowerShell
-    - PrivEsc
-  github_url: https://github.com/fr3akazo1d/priveschelper
-  icon: lock
-  visible: false
-
-- name: 🚧 Work in Progress
-  description: Exciting new security tool currently under development. Check back soon for updates on this cutting-edge project!
-  tags:
-    - Coming Soon
-    - In Development
-    - Stay Tuned
-  github_url: https://github.com/fr3akazo1d-sec
+    - Jykyll 
+    - Homepage
+    - personal
+  github_url: https://github.com/fr3akazo1d-sec/fr3akazo1d-sec.github.io
   icon: code
   visible: true
+  
+
 
 # To add a new project, copy the format above:
 # - name: Your Project Name
