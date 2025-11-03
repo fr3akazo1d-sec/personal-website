@@ -5,7 +5,7 @@
 
 /* === BLOG POST CONTAINER === */
 .blog-post {
-    max-width: 1100px;
+    max-width: 1200px;
     margin: 100px auto 50px;
     padding: 2rem;
     background: var(--bg-secondary);

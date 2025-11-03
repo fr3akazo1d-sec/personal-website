@@ -3,59 +3,21 @@
 # Proficiency: 1-5 (1=Beginner, 5=Expert)
 
 categories:
-  - name: Off-Sec
+  - name: Offensive Security
     icon: terminal
     skills:
       - name: Penetration Testing
         level: 4
-      - name: Red Team Ops
+      - name: Red Team Operations
         level: 3
       - name: Social Engineering
         level: 2
-      - name: Exploit Dev
+      - name: Exploit Development
         level: 2
       - name: Post-Exploitation
         level: 4
       - name: OSINT
         level: 4
-        
-  - name: Coding
-    icon: code
-    skills:
-      - name: Python
-        level: 4
-      - name: Bash/Shell
-        level: 4
-      - name: PowerShell
-        level: 2
-      - name: C/C++
-        level: 1
-      - name: Rust
-        level: 2
-      - name: C#
-        level: 2
-        
-  - name: Infra
-    icon: network
-    skills:
-      - name: Proxmox
-        level: 4
-      - name: Linux Admin
-        level: 5
-      - name: Windows AD
-        level: 4
-      - name: Cloud Security
-        level: 3
-      - name: Docker/Containers
-        level: 4
-      - name: Metasploit
-        level: 4
-      - name: Sliver
-        level: 4
-        
-  - name: Special
-    icon: shield
-    skills:
       - name: Web Application Security
         level: 3
       - name: Network Security
@@ -68,3 +30,33 @@ categories:
         level: 2
       - name: Reverse Engineering
         level: 1
+        
+  - name: Development & Infrastructure
+    icon: code
+    skills:
+      - name: Python
+        level: 4
+      - name: Bash/Shell Scripting
+        level: 4
+      - name: PowerShell
+        level: 2
+      - name: C/C++
+        level: 1
+      - name: Rust
+        level: 2
+      - name: C#
+        level: 2
+      - name: Proxmox Virtualization
+        level: 4
+      - name: Linux Administration
+        level: 5
+      - name: Windows Active Directory
+        level: 4
+      - name: Cloud Security
+        level: 3
+      - name: Docker/Containers
+        level: 4
+      - name: Metasploit Framework
+        level: 4
+      - name: Sliver C2
+        level: 4
