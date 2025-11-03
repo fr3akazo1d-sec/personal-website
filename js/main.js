@@ -169,6 +169,30 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // Next event banner close button
+    const nextEventBanner = document.querySelector('.next-event-banner');
+    const nextEventClose = document.querySelector('.next-event-close');
+    
+    console.log('Banner elements:', nextEventBanner, nextEventClose);
+    
+    if (nextEventClose && nextEventBanner) {
+        console.log('Adding close button listener');
+        nextEventClose.addEventListener('click', (e) => {
+            console.log('Close button clicked!');
+            e.preventDefault();
+            e.stopPropagation();
+            nextEventBanner.style.display = 'none';
+            // Store in session storage so it stays closed during the session
+            sessionStorage.setItem('nextEventBannerClosed', 'true');
+        });
+        
+        // Check if banner was closed in this session
+        if (sessionStorage.getItem('nextEventBannerClosed') === 'true') {
+            console.log('Banner was previously closed, hiding it');
+            nextEventBanner.style.display = 'none';
+        }
+    }
+    
     // Back to top button
     const backToTopBtn = document.querySelector('.back-to-top');
     

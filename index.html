@@ -62,29 +62,37 @@ description: Red Team Operator & Security Researcher specializing in adversary e
     {% endfor %}
     
     {% if next_event %}
-    <a href="{{ site.baseurl }}/calendar/" class="next-event-banner" style="text-decoration: none;">
-        <div class="next-event-content">
-            <div class="next-event-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
-                </svg>
+    <div class="next-event-banner">
+        <button class="next-event-close" aria-label="Close banner" onclick="document.querySelector('.next-event-banner').style.display='none';sessionStorage.setItem('nextEventBannerClosed','true');event.stopPropagation();">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/>
+                <line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+        <a href="{{ site.baseurl }}/calendar/" class="next-event-link">
+            <div class="next-event-content">
+                <div class="next-event-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                        <line x1="16" y1="2" x2="16" y2="6"/>
+                        <line x1="8" y1="2" x2="8" y2="6"/>
+                        <line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                </div>
+                <div class="next-event-details">
+                    <span class="next-event-label">Next Event:</span>
+                    <span class="next-event-title">{{ next_event.title }}</span>
+                    <span class="next-event-date">• {{ next_event.date_start | date: "%b %d, %Y" }} • {{ next_event.location }}</span>
+                </div>
+                <div class="next-event-arrow">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                        <polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                </div>
             </div>
-            <div class="next-event-details">
-                <span class="next-event-label">Next Event:</span>
-                <span class="next-event-title">{{ next_event.title }}</span>
-                <span class="next-event-date">• {{ next_event.date_start | date: "%b %d, %Y" }} • {{ next_event.location }}</span>
-            </div>
-            <div class="next-event-arrow">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="5" y1="12" x2="19" y2="12"/>
-                    <polyline points="12 5 19 12 12 19"/>
-                </svg>
-            </div>
-        </div>
-    </a>
+        </a>
+    </div>
     {% endif %}
     
     <!-- Back to Top Button -->
