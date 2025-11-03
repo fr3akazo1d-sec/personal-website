@@ -47,8 +47,7 @@ permalink: /resources/
         </div>
 
         <div class="resources-container">
-            {% assign sorted_resources = site.data.resources.items | sort: 'date' | reverse %}
-            {% for resource in sorted_resources %}
+            {% for resource in site.data.resources.items %}
             <div class="resource-card" data-category="{{ resource.category }}">
                 <div class="resource-header">
                     <div class="resource-meta">

@@ -2,6 +2,27 @@
 # Add your favorite tools, articles, and links here
 
 items:
+
+  - title: "Sattelite"
+    url: "https://github.com/t94j0/satellite/tree/master"
+    description: "Satellite is an web payload hosting service which filters requests to ensure the correct target is getting a payload. This can also be a useful service for hosting files that should be only accessed in very specific circumstances."
+    category: "tools"
+    date: "2025-11-03"
+    tags:
+      - satellite
+      - hosting
+      - payloads
+
+  - title: "Rustpack"
+    url: "https://www.msecops.de/products"
+    description: "RustPack is an evasive Packer/Loader, that is capable of bypassing common AV/EDR vendors."
+    category: "tools"
+    date: "2025-11-03"
+    tags:
+      - rust
+      - evasion
+      - Packer
+      - Loader
   - title: "HackTheBox"
     url: "https://www.hackthebox.com"
     description: "Online platform to test and advance your skills in penetration testing and cyber security."
