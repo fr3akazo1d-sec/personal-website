@@ -83,6 +83,14 @@ body, body * {
     opacity: 1;
 }
 
+/* Hide custom cursor on touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .cursor,
+    .cursor-follower {
+        display: none !important;
+    }
+}
+
 /* === LINKS === */
 a {
     color: var(--accent-red);
@@ -1107,7 +1115,13 @@ footer {
     
     .nav-menu ul {
         flex-wrap: wrap;
-        gap: var(--spacing-sm);
+        gap: 0.5rem;
+        padding: 0 0.5rem;
+    }
+    
+    .nav-link {
+        font-size: 0.875rem;
+        padding: 0.4rem 0.6rem;
     }
     
     .blog-grid,
@@ -2848,8 +2862,8 @@ html {
     }
 }
 
-/* === MOBILE RESPONSIVE === */
-@media (max-width: 768px) {
+/* === TABLET & MOBILE RESPONSIVE === */
+@media (max-width: 1024px) {
     .mobile-menu-toggle {
         display: flex;
     }
@@ -2859,7 +2873,7 @@ html {
         top: 0;
         right: -100%;
         width: 80%;
-        max-width: 300px;
+        max-width: 350px;
         height: 100vh;
         background: rgba(20, 29, 43, 0.98);
         backdrop-filter: blur(10px);
@@ -2886,15 +2900,18 @@ html {
     
     .nav-menu ul li a {
         display: block;
-        padding: 1rem 2rem;
-        transition: all 0.3s ease;
+        padding: 1.2rem 2rem;
+        font-size: 1rem;
+        text-align: left;
     }
     
     .nav-menu ul li a:hover {
-        background: rgba(0, 255, 247, 0.1);
+        background: rgba(0, 255, 247, 0.05);
         padding-left: 2.5rem;
     }
-    
+}
+
+@media (max-width: 768px) {
     .loading-logo {
         font-size: 4rem;
     }
