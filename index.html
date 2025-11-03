@@ -242,7 +242,7 @@ description: Red Team Operator & Security Researcher specializing in adversary e
                     </div>
                     
                     <div class="timeline-content">
-                        <div class="timeline-header">
+                        <div class="timeline-header" {% unless experience.current %}onclick="this.parentElement.classList.toggle('expanded')"{% endunless %}>
                             <div class="timeline-date">
                                 {% assign start_year = experience.start_date | slice: 0, 4 %}
                                 {% assign start_month = experience.start_date | slice: 5, 2 %}
@@ -264,8 +264,16 @@ description: Red Team Operator & Security Researcher specializing in adversary e
                                 {{ experience.company }}
                                 <span class="location">| {{ experience.location }}</span>
                             </div>
+                            {% unless experience.current %}
+                            <button class="timeline-toggle" aria-label="Expand details">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9"/>
+                                </svg>
+                            </button>
+                            {% endunless %}
                         </div>
                         
+                        <div class="timeline-details {% unless experience.current %}collapsed{% endunless %}">
                         <div class="timeline-description">
                             {{ experience.description }}
                         </div>
@@ -288,6 +296,7 @@ description: Red Team Operator & Security Researcher specializing in adversary e
                             {% endfor %}
                         </div>
                         {% endif %}
+                        </div>
                     </div>
                 </div>
                 {% endfor %}
