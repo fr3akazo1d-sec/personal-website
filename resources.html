@@ -1,0 +1,244 @@
+---
+layout: default
+title: Resources
+permalink: /resources/
+---
+
+<!-- Mobile Menu Toggle -->
+<button class="mobile-menu-toggle" aria-label="Toggle menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+<!-- Navigation -->
+<nav class="nav-menu">
+    <ul>
+        <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#about" class="nav-link">About</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#career" class="nav-link">Career</a></li>
+        <li><a href="{{ site.baseurl }}/conferences/" class="nav-link">Conferences</a></li>
+        <li><a href="{{ site.baseurl }}/gallery/" class="nav-link">Gallery</a></li>
+        <li><a href="{{ site.baseurl }}/calendar/" class="nav-link">Calendar</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="{{ site.baseurl }}/tags/" class="nav-link">Tags</a></li>
+        <li><a href="{{ site.baseurl }}/resources/" class="nav-link">Resources</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<!-- Resources Page -->
+<section class="resources-page section">
+    <div class="container">
+        <div class="section-header">
+            <h1 class="section-title glitch" data-text="[RESOURCES]">[RESOURCES]</h1>
+            <p class="section-subtitle">Tools, Articles & Useful Links</p>
+        </div>
+
+        <!-- Category Filter -->
+        <div class="resource-filters">
+            <button class="resource-filter-btn active" data-category="all">All</button>
+            <button class="resource-filter-btn" data-category="tools">Tools</button>
+            <button class="resource-filter-btn" data-category="articles">Articles</button>
+            <button class="resource-filter-btn" data-category="learning">Learning</button>
+            <button class="resource-filter-btn" data-category="other">Other</button>
+        </div>
+
+        <div class="resources-container">
+            {% assign sorted_resources = site.data.resources.items | sort: 'date' | reverse %}
+            {% for resource in sorted_resources %}
+            <div class="resource-card" data-category="{{ resource.category }}">
+                <div class="resource-header">
+                    <span class="resource-category">{{ resource.category | upcase }}</span>
+                    <span class="resource-date">{{ resource.date | date: "%Y-%m-%d" }}</span>
+                </div>
+                <h3 class="resource-title">
+                    <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
+                        {{ resource.title }}
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="external-link-icon">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+                </h3>
+                <p class="resource-description">{{ resource.description }}</p>
+                {% if resource.tags %}
+                <div class="resource-tags">
+                    {% for tag in resource.tags %}
+                    <span class="resource-tag">#{{ tag }}</span>
+                    {% endfor %}
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<style>
+/* === RESOURCES PAGE STYLES === */
+.resources-page {
+    min-height: 100vh;
+    padding: calc(60px + var(--spacing-lg)) var(--spacing-md) var(--spacing-lg);
+}
+
+.resource-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.resource-filter-btn {
+    padding: 0.5rem 1.5rem;
+    background: rgba(16, 20, 26, 0.5);
+    border: 1px solid rgba(0, 255, 247, 0.2);
+    border-radius: 20px;
+    color: var(--accent-cyan);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.resource-filter-btn:hover {
+    background: rgba(0, 255, 247, 0.1);
+    border-color: var(--accent-cyan);
+    transform: translateY(-2px);
+}
+
+.resource-filter-btn.active {
+    background: var(--accent-cyan);
+    color: var(--bg-main);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
+}
+
+.resources-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.resource-card {
+    background: rgba(20, 29, 43, 0.5);
+    border: 1px solid rgba(0, 255, 247, 0.2);
+    border-radius: 8px;
+    padding: var(--spacing-lg);
+    transition: all 0.3s ease;
+}
+
+.resource-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.2);
+    transform: translateY(-5px);
+}
+
+.resource-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-sm);
+}
+
+.resource-category {
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 255, 247, 0.1);
+    border: 1px solid var(--accent-cyan);
+    border-radius: 4px;
+    color: var(--accent-cyan);
+    font-size: 0.75rem;
+    font-weight: 600;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.resource-date {
+    color: var(--text-dim);
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.resource-title {
+    font-size: 1.3rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.resource-title a {
+    color: var(--text-bright);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.resource-title a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-cyan);
+}
+
+.external-link-icon {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+}
+
+.resource-description {
+    color: var(--text-main);
+    line-height: 1.6;
+    margin-bottom: var(--spacing-md);
+}
+
+.resource-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.resource-tag {
+    color: var(--accent-red);
+    font-size: 0.85rem;
+    font-family: 'JetBrains Mono', monospace;
+    padding: 0.25rem 0.5rem;
+    background: rgba(255, 0, 60, 0.1);
+    border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+    .resources-container {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.resource-filter-btn');
+    const resourceCards = document.querySelectorAll('.resource-card');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const category = button.dataset.category;
+            
+            // Update active state
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter cards
+            resourceCards.forEach(card => {
+                if (category === 'all' || card.dataset.category === category) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    });
+});
+</script>

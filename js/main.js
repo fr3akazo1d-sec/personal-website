@@ -914,3 +914,317 @@ function activateLogoEasterEgg() {
 
 // 4. Console Message Easter Egg
 console.log('%c🔍 HINT: Try triple-clicking the logo!', 'color: #39ff14; font-size: 12px; font-style: italic;');
+
+// 5. Fake Hacking Progress Bar
+const hackButton = document.getElementById('hackButton');
+if (hackButton) {
+    hackButton.addEventListener('click', () => {
+        // Create overlay
+        const overlay = document.createElement('div');
+        overlay.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 1.5rem;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 2rem;
+            overflow-y: auto;
+        `;
+        
+        document.body.appendChild(overlay);
+        
+        // Random code snippets for terminals
+        const codeSnippets = [
+            'import socket\nimport struct\n\nHOST = "192.168.1.100"\nPORT = 4444\n\nshellcode = b"\\x90" * 100\nconnect(HOST, PORT)',
+            'nmap -sS -sV -O 10.0.0.0/24\nScanning ports...\n22/tcp   open  ssh\n80/tcp   open  http\n443/tcp  open  https',
+            'sqlmap -u "target.com/page?id=1"\n[INFO] testing SQL injection\n[CRITICAL] vulnerable to injection!\nDumping database schema...',
+            'msfconsole\nuse exploit/multi/handler\nset PAYLOAD windows/meterpreter/reverse_tcp\nset LHOST 192.168.1.50\nexploit -j',
+            'hydra -L users.txt -P pass.txt ssh://target.com\n[22][ssh] host: target.com login: admin password: p@ssw0rd\n[STATUS] attack finished',
+        ];
+        
+        let terminals = [];
+        let currentStep = 0;
+        
+        // Step 1: First terminal with random code
+        setTimeout(() => {
+            const term1 = createTerminal('Establishing Connection...', codeSnippets[0], 'cyan');
+            overlay.appendChild(term1);
+            terminals.push(term1);
+            typeText(term1.querySelector('.terminal-output'), codeSnippets[0], 30);
+        }, 300);
+        
+        // Step 2: Second terminal
+        setTimeout(() => {
+            const term2 = createTerminal('Scanning Network...', codeSnippets[1], 'cyan');
+            overlay.appendChild(term2);
+            terminals.push(term2);
+            typeText(term2.querySelector('.terminal-output'), codeSnippets[1], 25);
+        }, 2500);
+        
+        // Step 3: Third terminal
+        setTimeout(() => {
+            const term3 = createTerminal('Exploiting Vulnerabilities...', codeSnippets[2], 'cyan');
+            overlay.appendChild(term3);
+            terminals.push(term3);
+            typeText(term3.querySelector('.terminal-output'), codeSnippets[2], 28);
+        }, 4800);
+        
+        // Step 4: Fourth terminal with progress bar
+        setTimeout(() => {
+            const term4 = createTerminalWithProgress();
+            overlay.appendChild(term4);
+            terminals.push(term4);
+            
+            const output = term4.querySelector('.terminal-output');
+            const progressBar = term4.querySelector('.progress-bar');
+            const progressText = term4.querySelector('.progress-text');
+            
+            const messages = [
+                '[*] Initializing payload injection...',
+                '[*] Bypassing authentication...',
+                '[*] Escalating privileges...',
+                '[*] Accessing restricted files...',
+                '[*] Downloading sensitive data...',
+                '[*] Covering tracks...',
+                '[!] Finalizing access...'
+            ];
+            
+            let progress = 0;
+            let messageIndex = 0;
+            
+            const interval = setInterval(() => {
+                if (messageIndex < messages.length) {
+                    output.innerHTML += messages[messageIndex] + '<br>';
+                    output.scrollTop = output.scrollHeight;
+                    messageIndex++;
+                }
+                
+                progress += Math.random() * 12 + 8;
+                if (progress > 100) progress = 100;
+                
+                progressBar.style.width = progress + '%';
+                progressText.textContent = Math.floor(progress) + '%';
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // Step 5: Show ACCESS GRANTED box
+                    setTimeout(() => {
+                        showAccessGranted(overlay);
+                    }, 800);
+                }
+            }, 350);
+        }, 7200);
+        
+        function createTerminal(title, content, color) {
+            const terminal = document.createElement('div');
+            terminal.style.cssText = `
+                width: 90%;
+                max-width: 700px;
+                background: rgba(20, 29, 43, 0.95);
+                border: 2px solid var(--accent-${color});
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 0 30px rgba(0, 255, 247, 0.2);
+                animation: terminalSlideIn 0.5s ease;
+            `;
+            
+            const header = document.createElement('div');
+            header.style.cssText = `
+                color: var(--accent-${color});
+                font-weight: 600;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            `;
+            header.textContent = title;
+            
+            const output = document.createElement('div');
+            output.className = 'terminal-output';
+            output.style.cssText = `
+                color: var(--accent-${color});
+                font-size: 0.85rem;
+                line-height: 1.6;
+                min-height: 80px;
+                white-space: pre-wrap;
+            `;
+            
+            terminal.appendChild(header);
+            terminal.appendChild(output);
+            return terminal;
+        }
+        
+        function createTerminalWithProgress() {
+            const terminal = document.createElement('div');
+            terminal.style.cssText = `
+                width: 90%;
+                max-width: 700px;
+                background: rgba(20, 29, 43, 0.95);
+                border: 2px solid var(--accent-cyan);
+                border-radius: 8px;
+                padding: 1.5rem;
+                box-shadow: 0 0 30px rgba(0, 255, 247, 0.2);
+                animation: terminalSlideIn 0.5s ease;
+            `;
+            
+            const header = document.createElement('div');
+            header.style.cssText = `
+                color: var(--accent-cyan);
+                font-weight: 600;
+                margin-bottom: 1rem;
+                font-size: 0.95rem;
+            `;
+            header.textContent = 'Executing Main Attack Vector...';
+            
+            const output = document.createElement('div');
+            output.className = 'terminal-output';
+            output.style.cssText = `
+                color: var(--accent-cyan);
+                font-size: 0.85rem;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+                max-height: 150px;
+                overflow-y: auto;
+            `;
+            
+            const progressContainer = document.createElement('div');
+            progressContainer.style.cssText = `
+                width: 100%;
+                height: 25px;
+                background: rgba(16, 20, 26, 0.8);
+                border: 1px solid var(--accent-cyan);
+                border-radius: 4px;
+                overflow: hidden;
+                margin-bottom: 0.5rem;
+            `;
+            
+            const progressBar = document.createElement('div');
+            progressBar.className = 'progress-bar';
+            progressBar.style.cssText = `
+                width: 0%;
+                height: 100%;
+                background: linear-gradient(90deg, var(--accent-cyan), var(--accent-red));
+                transition: width 0.3s ease;
+                box-shadow: 0 0 20px var(--accent-cyan);
+            `;
+            
+            const progressText = document.createElement('div');
+            progressText.className = 'progress-text';
+            progressText.style.cssText = `
+                color: var(--accent-red);
+                text-align: center;
+                font-size: 1rem;
+                font-weight: 600;
+            `;
+            progressText.textContent = '0%';
+            
+            progressContainer.appendChild(progressBar);
+            terminal.appendChild(header);
+            terminal.appendChild(output);
+            terminal.appendChild(progressContainer);
+            terminal.appendChild(progressText);
+            return terminal;
+        }
+        
+        function showAccessGranted(overlay) {
+            const accessBox = document.createElement('div');
+            accessBox.style.cssText = `
+                width: 90%;
+                max-width: 600px;
+                background: rgba(20, 29, 43, 0.98);
+                border: 3px solid var(--accent-red);
+                border-radius: 12px;
+                padding: 3rem 2rem;
+                box-shadow: 0 0 60px rgba(255, 7, 58, 0.5);
+                animation: accessGranted 0.6s ease;
+                text-align: center;
+            `;
+            
+            accessBox.innerHTML = `
+                <div style="color: var(--accent-red); font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 0 0 20px var(--accent-red);">
+                    ACCESS GRANTED
+                </div>
+                <div style="color: var(--accent-cyan); font-size: 1.2rem; margin-bottom: 2rem;">
+                    ✓ System Compromised Successfully
+                </div>
+                <div style="color: var(--accent-green); font-size: 1rem; margin-bottom: 1rem;">
+                    HACK COMPLETE!
+                </div>
+                <div style="color: var(--text-main); font-size: 0.9rem; opacity: 0.8; line-height: 1.6;">
+                    Just kidding! 😄<br>
+                    No systems were harmed in the making of this joke.<br>
+                    Stay ethical, stay legal!
+                </div>
+            `;
+            
+            overlay.appendChild(accessBox);
+            
+            setTimeout(() => {
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.5s';
+                setTimeout(() => overlay.remove(), 500);
+            }, 4000);
+        }
+        
+        function typeText(element, text, speed) {
+            let i = 0;
+            const interval = setInterval(() => {
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+        
+        // Add animations to CSS
+        if (!document.querySelector('#hack-animations')) {
+            const style = document.createElement('style');
+            style.id = 'hack-animations';
+            style.textContent = `
+                @keyframes terminalSlideIn {
+                    from {
+                        opacity: 0;
+                        transform: translateY(20px) scale(0.95);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0) scale(1);
+                    }
+                }
+                @keyframes accessGranted {
+                    0% {
+                        opacity: 0;
+                        transform: scale(0.8);
+                    }
+                    50% {
+                        transform: scale(1.05);
+                    }
+                    100% {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+        }
+        
+        // Click overlay to close
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) {
+                overlay.style.opacity = '0';
+                overlay.style.transition = 'opacity 0.5s';
+                setTimeout(() => overlay.remove(), 500);
+            }
+        });
+    });
+}
+

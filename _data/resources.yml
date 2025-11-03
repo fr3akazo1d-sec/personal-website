@@ -1,0 +1,45 @@
+# Resources Configuration
+# Add your favorite tools, articles, and links here
+
+items:
+  - title: "HackTheBox"
+    url: "https://www.hackthebox.com"
+    description: "Online platform to test and advance your skills in penetration testing and cyber security."
+    category: "learning"
+    date: "2024-01-15"
+    tags:
+      - pentesting
+      - labs
+      - CTF
+
+  - title: "Sliver C2"
+    url: "https://github.com/BishopFox/sliver"
+    description: "Open source cross-platform adversary emulation/red team framework."
+    category: "tools"
+    date: "2024-02-10"
+    tags:
+      - C2
+      - red-team
+      - framework
+
+  - title: "MITRE ATT&CK"
+    url: "https://attack.mitre.org/"
+    description: "Globally-accessible knowledge base of adversary tactics and techniques."
+    category: "learning"
+    date: "2024-01-20"
+    tags:
+      - framework
+      - tactics
+      - techniques
+
+  - title: "PayloadsAllTheThings"
+    url: "https://github.com/swisskyrepo/PayloadsAllTheThings"
+    description: "A list of useful payloads and bypasses for Web Application Security."
+    category: "tools"
+    date: "2024-03-05"
+    tags:
+      - payloads
+      - web-security
+      - cheatsheet
+
+  # Add more resources below in the same format
