@@ -51,8 +51,10 @@ permalink: /resources/
             {% for resource in sorted_resources %}
             <div class="resource-card" data-category="{{ resource.category }}">
                 <div class="resource-header">
-                    <span class="resource-category">{{ resource.category | upcase }}</span>
-                    <span class="resource-date">{{ resource.date | date: "%Y-%m-%d" }}</span>
+                    <div class="resource-meta">
+                        <span class="resource-category">{{ resource.category | upcase }}</span>
+                        <span class="resource-date">{{ resource.date | date: "%Y-%m-%d" }}</span>
+                    </div>
                 </div>
                 <h3 class="resource-title">
                     <a href="{{ resource.url }}" target="_blank" rel="noopener noreferrer">
@@ -120,10 +122,28 @@ permalink: /resources/
 
 .resources-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     gap: var(--spacing-lg);
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+}
+
+@media (max-width: 1366px) {
+    .resources-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 968px) {
+    .resources-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .resources-container {
+        grid-template-columns: 1fr;
+    }
 }
 
 .resource-card {
@@ -132,6 +152,9 @@ permalink: /resources/
     border-radius: 8px;
     padding: var(--spacing-lg);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .resource-card:hover {
@@ -141,10 +164,13 @@ permalink: /resources/
 }
 
 .resource-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: var(--spacing-sm);
+}
+
+.resource-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .resource-category {
@@ -156,11 +182,12 @@ permalink: /resources/
     font-size: 0.75rem;
     font-weight: 600;
     font-family: 'JetBrains Mono', monospace;
+    width: fit-content;
 }
 
 .resource-date {
     color: var(--text-dim);
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-family: 'JetBrains Mono', monospace;
 }
 
@@ -193,6 +220,7 @@ permalink: /resources/
     color: var(--text-main);
     line-height: 1.6;
     margin-bottom: var(--spacing-md);
+    flex-grow: 1;
 }
 
 .resource-tags {
