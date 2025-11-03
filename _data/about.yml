@@ -2,42 +2,19 @@
 # Edit this file to update your about section
 
 description: |
-  I’m Phil — but in the wild, you’ll find me as Fr3akazo1d.
-  
-  Fueled by coffee ☕, Monster Energy ⚡, and mate 🍵 — because uptime matters.
-  I break systems, not for chaos, but to make them bulletproof.
-  Offensive security is my battlefield, Red Team ops my weapon of choice.
-  I design and maintain Red Team infrastructure, build custom tools, and sharpen my edge with exploit development.
-  Always learning, always evolving — from HackTheBox Pro Labs, HTB Academy, and HackSmarter to a never-ending to-do list that looks like an infinite recon scan.
-  If it runs code, I’ll find a way in. If it’s patched, I’ll craft the exploit.
-
-  Beyond the Terminal
-  Off the cyber grid, life runs its own high-availability cluster.
-  I’ve got a loving wife ❤️, two awesome kids 👨‍👩‍👧‍👦, a dog 🐕, and two cats 🐈🐈 running their own chaos ops.
-  Add a house to maintain 🏠, and yeah… free time is basically a zero-day exploit.
-  When I do find a gap in the schedule, I fire up Minecraft with my oldest son — building worlds instead of pwning them.
-  
-  And if I get some time just for me?
-  You’ll catch me in my homelab, tweaking Wi-Fi and LAN like a live exploit chain.
-  Breaking configs, optimizing performance, and occasionally nuking the internet at home (my wife is definitely not thrilled when “upgrade” = outage 😅).
-  Oh, and yes — I run my own Proxmox cluster (3 nodes strong 💪), play with tool development, and keep a Pi-hole for DNS (which my wife refuses to use because Google Ads must survive on her phone 🤷‍♂️).
-  Plus, grinding through HackTheBox Pro Labs, HTB Academy, and HackSmarter — all while staring at a to-do list that looks like an endless recon scan.
-  And yes… the most reliable device in my entire home network? The coffee machine. Zero downtime, maximum throughput.
+  Hey, I'm Phil — or Fr3akazo1d if you're in the right circles.
+  I spend my days breaking into systems to figure out how to defend them better. Red Team operations, infrastructure design, custom tooling — that's my thing. Coffee and Monster Energy keep me going, and there's always a HackTheBox lab running somewhere in the background.
+  When I'm not breaking things professionally, I'm probably breaking them at home. My Proxmox cluster (3 nodes) is constantly getting tweaked, my Wi-Fi setup has seen more changes than I can count, and yes... I've accidentally taken down the home internet more times than my wife would like. It's always DNS. Except when it's not DNS — then it's still DNS.
+  Real life? Married with two kids, a dog, and two cats. Free time is rare, but when I get it, I'm either in the homelab or playing Minecraft with my oldest son. Sometimes both.
+  The only device in my house with perfect uptime? The coffee machine.
 
 focus_areas:
   - Red Team Operations & Adversary Emulation
-  - Offensive Infrastructure Engineering (Proxmox Cluster, C2, VPN)
+  - Offensive Infrastructure (Proxmox, C2, VPN setups)
   - Custom Tool Development & Automation
   - Exploit Development & Reverse Engineering
-  - Security Research & Vulnerability Hunting
-  - Continuous Learning (HackTheBox Pro Labs, HTB Academy, HackSmarter)
-  - Homelab Experiments (Wi-Fi/LAN tweaks, Pi-hole DNS, breaking & fixing configs)
-  - Loving Wife ❤️ — Mission Control, keeps the chaos contained
-  - Two Kids 👨‍👩‍👧‍👦 — Junior Operators, always in active mode
-  - Dog 🐕 — Physical Security, alerts on every packet (and squirrel)
-  - Two Cats 🐈🐈 — Stealth Agents, operating in silent mode
-  - House Maintenance 🏠 — Real-world patching, uptime never guaranteed
-  - Minecraft Missions 🎮 — Co-op ops with my oldest son, building instead of breaking
-  - Energy Stack = Coffee ☕ + Monster ⚡ + Mate 🍵 — because even hackers need redundancy
+  - Continuous Learning (HackTheBox, HTB Academy, HackSmarter)
+  - Homelab Tinkering (usually breaking something)
 
 motto: "Sometimes I feel like giving up, then I remember I have a lot of people to prove wrong."
+motto2: "Root is not a privilege. It's a mindset."

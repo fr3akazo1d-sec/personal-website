@@ -42,6 +42,7 @@ description: Red Team Operator & Security Researcher specializing in adversary e
                 <li><a href="{{ site.baseurl }}/gallery/" class="nav-link">Gallery</a></li>
                 <li><a href="{{ site.baseurl }}/calendar/" class="nav-link">Calendar</a></li>
                 <li><a href="#blog" class="nav-link">Blog</a></li>
+                <li><a href="{{ site.baseurl }}/archive/" class="nav-link">Archive</a></li>
                 <li><a href="{{ site.baseurl }}/tags/" class="nav-link">Tags</a></li>
                 <li><a href="{{ site.baseurl }}/resources/" class="nav-link">Resources</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
@@ -137,11 +138,6 @@ description: Red Team Operator & Security Researcher specializing in adversary e
                             <li>> {{ area }}</li>
                             {% endfor %}
                         </ul>
-                        {% endif %}
-                        {% if site.data.about.motto %}
-                        <p class="output motto-text">
-                            <span class="highlight-red">"{{ site.data.about.motto }}"</span>
-                        </p>
                         {% endif %}
                         <p class="command-line"><span class="prompt-user">fr3akazo1d</span><span class="prompt-path">@root:~#</span> <span class="cursor-blink">_</span></p>
                     </div>
@@ -424,6 +420,11 @@ description: Red Team Operator & Security Researcher specializing in adversary e
     <section id="blog" class="section">
         <div class="container">
             <h2 class="section-title glitch" data-text="$ cat blog.log"># cat blog.log</h2>
+            <div style="text-align: center; margin-bottom: 2rem;">
+                <a href="{{ site.baseurl }}/archive/" style="display: inline-block; padding: 0.5rem 1.5rem; background: rgba(255, 0, 60, 0.1); color: var(--accent-red); text-decoration: none; border: 1px solid var(--accent-red); border-radius: 8px; font-family: 'JetBrains Mono', monospace; font-size: 1rem; transition: all 0.3s ease;">
+                    [archive]
+                </a>
+            </div>
             <div class="blog-grid">
                 {% include blog-posts.html %}
             </div>

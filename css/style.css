@@ -76,7 +76,7 @@ body, body * {
     position: fixed;
     pointer-events: none;
     z-index: 99998;
-    transition: all 0.15s ease;
+    transition: width 0.2s ease, height 0.2s ease;
     transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
@@ -558,9 +558,9 @@ header::before {
 /* === SECTIONS === */
 .section {
     min-height: 100vh;
-    padding: var(--spacing-xl) 0;
+    padding: var(--spacing-lg) 0;
     position: relative;
-    padding-top: calc(80px + var(--spacing-xl));
+    padding-top: calc(80px + var(--spacing-lg));
     opacity: 1 !important;
     visibility: visible !important;
     display: block !important;

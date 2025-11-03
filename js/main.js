@@ -25,10 +25,12 @@
             
             // Animate cursor
             function animateCursor() {
-                cursorX += (mouseX - cursorX) * 0.5;
-                cursorY += (mouseY - cursorY) * 0.5;
-                followerX += (mouseX - followerX) * 0.15;
-                followerY += (mouseY - followerY) * 0.15;
+                // Main cursor: instant follow (no easing)
+                cursorX = mouseX;
+                cursorY = mouseY;
+                // Follower: faster easing for better trailing effect
+                followerX += (mouseX - followerX) * 0.4;
+                followerY += (mouseY - followerY) * 0.4;
                 
                 cursor.style.left = cursorX + 'px';
                 cursor.style.top = cursorY + 'px';
@@ -59,18 +61,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // === HANDLE HASH NAVIGATION ON PAGE LOAD ===
     // Fix for anchor links from external pages (e.g., /gallery/ -> /index.html#blog)
     if (window.location.hash) {
-        // Wait a bit for page to fully render, then scroll
+        // Wait for page to fully render, then scroll
         setTimeout(() => {
             const hash = window.location.hash;
             const targetSection = document.querySelector(hash);
             console.log('Hash detected:', hash, 'Target:', targetSection);
             if (targetSection) {
-                targetSection.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
+                // Scroll to position accounting for fixed header
+                const headerOffset = 80;
+                const elementPosition = targetSection.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
                 });
             }
-        }, 100);
+        }, 300);
     }
     
     // === CURSOR ELEMENTS (for hover effects) ===
@@ -168,6 +175,29 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+    
+    // === SMOOTH SCROLLING FOR ANCHOR LINKS ===
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            // Only handle same-page anchor links
+            if (href && href.includes('#') && !href.includes('index.html#')) {
+                const hash = href.split('#')[1];
+                const targetSection = document.querySelector('#' + hash);
+                if (targetSection && window.location.pathname === '/') {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            }
+        });
+    });
     
     // Next event banner close button
     const nextEventBanner = document.querySelector('.next-event-banner');
@@ -317,42 +347,8 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(section);
     });
     
-    // === TYPING EFFECT FOR TERMINAL ===
-    function typeEffect(element, text, speed = 50) {
-        let i = 0;
-        element.textContent = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.textContent += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
-            }
-        }
-        
-        type();
-    }
-    
-    // Apply typing effect to terminal prompts on scroll
-    const terminalOutputs = document.querySelectorAll('.terminal-body .output');
-    
-    const terminalObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting && !entry.target.dataset.typed) {
-                entry.target.dataset.typed = 'true';
-                const text = entry.target.textContent;
-                typeEffect(entry.target, text, 20);
-            }
-        });
-    }, { threshold: 0.5 });
-    
-    // Only apply to first paragraph in each terminal
-    document.querySelectorAll('.terminal-body').forEach(terminal => {
-        const firstOutput = terminal.querySelector('.output:not(ul)');
-        if (firstOutput) {
-            terminalObserver.observe(firstOutput);
-        }
-    });
+    // === TYPING EFFECT REMOVED ===
+    // Text now displays immediately without typing animation
     
     // === PARTICLE BACKGROUND (Optional) ===
     function createParticle() {

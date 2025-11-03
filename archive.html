@@ -1,0 +1,104 @@
+---
+layout: default
+title: Blog Archive
+permalink: /archive/
+description: Complete archive of all blog posts
+---
+
+<!-- Mobile Menu Toggle -->
+<button class="mobile-menu-toggle" aria-label="Toggle menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
+<!-- Navigation -->
+<nav class="nav-menu">
+    <ul>
+        <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#about" class="nav-link">About</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#skills" class="nav-link">Skills</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#career" class="nav-link">Career</a></li>
+        <li><a href="{{ site.baseurl }}/conferences/" class="nav-link">Conferences</a></li>
+        <li><a href="{{ site.baseurl }}/gallery/" class="nav-link">Gallery</a></li>
+        <li><a href="{{ site.baseurl }}/calendar/" class="nav-link">Calendar</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#blog" class="nav-link">Blog</a></li>
+        <li><a href="{{ site.baseurl }}/tags/" class="nav-link">Tags</a></li>
+        <li><a href="{{ site.baseurl }}/resources/" class="nav-link">Resources</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#projects" class="nav-link">Projects</a></li>
+        <li><a href="{{ site.baseurl }}/index.html#contact" class="nav-link">Contact</a></li>
+    </ul>
+</nav>
+
+<section class="section" style="margin-top: 80px;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto;">
+        <h1 class="section-title glitch" data-text="$ ls -la ~/blog/archive"># ls -la ~/blog/archive</h1>
+        <p class="section-description">Complete archive of all blog posts</p>
+
+        {% assign posts_by_year = site.posts | group_by_exp: "post", "post.date | date: '%Y'" %}
+        
+        {% for year in posts_by_year %}
+        <div class="archive-year" style="margin-bottom: 3rem;">
+            <h2 style="color: var(--accent-cyan); font-size: 2rem; margin-bottom: 1.5rem; border-bottom: 2px solid rgba(0, 255, 247, 0.3); padding-bottom: 0.5rem;">
+                {{ year.name }}
+            </h2>
+            
+            <div class="archive-posts" style="display: grid; gap: 1rem;">
+                {% for post in year.items %}
+                <div class="archive-post-item" style="background: rgba(20, 29, 43, 0.5); border: 1px solid rgba(0, 255, 247, 0.2); border-radius: 8px; padding: 1.5rem; transition: all 0.3s ease;">
+                    <div style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap;">
+                        <div style="min-width: 120px; color: var(--text-secondary); font-family: 'JetBrains Mono', monospace;">
+                            {{ post.date | date: "%b %d, %Y" }}
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <h3 style="margin: 0 0 0.5rem 0;">
+                                <a href="{{ post.url | relative_url }}" style="color: var(--text-main); text-decoration: none; font-size: 1.3rem; transition: color 0.3s ease;">
+                                    {{ post.title }}
+                                </a>
+                            </h3>
+                            {% if post.excerpt %}
+                            <p style="color: var(--text-secondary); margin: 0.5rem 0; line-height: 1.6;">
+                                {{ post.excerpt | strip_html | truncate: 150 }}
+                            </p>
+                            {% endif %}
+                            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.75rem;">
+                                {% for tag in post.tags limit:3 %}
+                                <span style="background: rgba(0, 255, 247, 0.1); color: var(--accent-cyan); padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.85rem; border: 1px solid rgba(0, 255, 247, 0.3);">
+                                    #{{ tag }}
+                                </span>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+        
+        {% if site.posts.size == 0 %}
+        <p style="text-align: center; color: var(--text-secondary); padding: 3rem;">
+            No posts in the archive yet.
+        </p>
+        {% endif %}
+    </div>
+</section>
+
+<style>
+.archive-post-item:hover {
+    border-color: var(--accent-cyan) !important;
+    box-shadow: 0 10px 30px rgba(0, 255, 247, 0.2);
+    transform: translateY(-2px);
+}
+
+.archive-post-item:hover h3 a {
+    color: var(--accent-cyan) !important;
+}
+
+@media (max-width: 768px) {
+    .archive-post-item > div {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+}
+</style>
