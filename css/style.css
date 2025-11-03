@@ -154,26 +154,65 @@ header::before {
 
 .logo {
     font-size: 8rem;
-    font-weight: 700;
-    font-family: cursive, var(--font-mono);
-    letter-spacing: -0.05em;
+    font-weight: 900;
+    font-family: 'Orbitron', 'Rajdhani', 'Share Tech Mono', 'JetBrains Mono', monospace;
+    letter-spacing: 0.05em;
     position: relative;
     display: inline-block;
     animation: float 6s ease-in-out infinite;
+    text-transform: uppercase;
 }
 
 .logo-f {
     color: var(--accent-cyan);
-    filter: drop-shadow(0 0 20px var(--accent-cyan));
     position: relative;
     display: inline-block;
+    text-shadow: 
+        0 0 10px var(--accent-cyan),
+        0 0 20px var(--accent-cyan),
+        0 0 30px var(--accent-cyan),
+        0 0 40px rgba(0, 255, 247, 0.5),
+        0 0 70px rgba(0, 255, 247, 0.3),
+        0 0 100px rgba(0, 255, 247, 0.2);
+    filter: brightness(1.2);
+}
+
+.logo-f::before {
+    content: 'F';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    text-shadow: 
+        -2px -2px 0 rgba(0, 255, 247, 0.3),
+        2px 2px 0 rgba(0, 255, 247, 0.3);
+    z-index: -1;
 }
 
 .logo-exclaim {
     color: var(--accent-red);
-    filter: drop-shadow(0 0 20px var(--accent-red));
     position: relative;
     display: inline-block;
+    text-shadow: 
+        0 0 10px var(--accent-red),
+        0 0 20px var(--accent-red),
+        0 0 30px var(--accent-red),
+        0 0 40px rgba(255, 7, 58, 0.5),
+        0 0 70px rgba(255, 7, 58, 0.3),
+        0 0 100px rgba(255, 7, 58, 0.2);
+    filter: brightness(1.2);
+}
+
+.logo-exclaim::before {
+    content: '!';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: transparent;
+    text-shadow: 
+        -2px -2px 0 rgba(255, 7, 58, 0.3),
+        2px 2px 0 rgba(255, 7, 58, 0.3);
+    z-index: -1;
 }
 
 @keyframes float {
@@ -2632,24 +2671,36 @@ footer {
 
 .loading-logo {
     font-size: 6rem;
-    font-weight: 700;
-    font-family: cursive, var(--font-mono);
+    font-weight: 900;
+    font-family: 'Orbitron', 'Rajdhani', 'Share Tech Mono', 'JetBrains Mono', monospace;
     margin-bottom: var(--spacing-md);
     animation: float 3s ease-in-out infinite;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
 }
 
 .loading-f {
     color: var(--accent-cyan);
-    filter: drop-shadow(0 0 20px var(--accent-cyan));
     position: relative;
     display: inline-block;
+    text-shadow: 
+        0 0 10px var(--accent-cyan),
+        0 0 20px var(--accent-cyan),
+        0 0 30px var(--accent-cyan),
+        0 0 40px rgba(0, 255, 247, 0.5);
+    filter: brightness(1.2);
 }
 
 .loading-exclaim {
     color: var(--accent-red);
-    filter: drop-shadow(0 0 20px var(--accent-red));
     position: relative;
     display: inline-block;
+    text-shadow: 
+        0 0 10px var(--accent-red),
+        0 0 20px var(--accent-red),
+        0 0 30px var(--accent-red),
+        0 0 40px rgba(255, 7, 58, 0.5);
+    filter: brightness(1.2);
 }
 
 .loading-text {
