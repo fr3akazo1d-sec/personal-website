@@ -36,10 +36,26 @@ permalink: /tags/
             <p class="section-subtitle">Browse posts by topic</p>
         </div>
 
+        {% assign sorted_tags = site.tags | sort %}
+        
+        <!-- Tag Cloud - Quick Navigation -->
+        <div class="tag-cloud">
+            <h2 class="tag-cloud-title">Quick Navigation</h2>
+            <div class="tag-cloud-items">
+                <button class="tag-cloud-item tag-filter-btn active" data-tag="all">
+                    All Tags <span class="tag-cloud-count">{{ site.tags | size }}</span>
+                </button>
+                {% for tag in sorted_tags %}
+                <button class="tag-cloud-item tag-filter-btn" data-tag="{{ tag[0] | slugify }}">
+                    #{{ tag[0] }} <span class="tag-cloud-count">{{ tag[1] | size }}</span>
+                </button>
+                {% endfor %}
+            </div>
+        </div>
+
         <div class="tags-container">
-            {% assign sorted_tags = site.tags | sort %}
             {% for tag in sorted_tags %}
-                <div class="tag-group">
+                <div class="tag-group" data-tag-group="{{ tag[0] | slugify }}">
                     <h2 class="tag-title" id="{{ tag[0] | slugify }}">
                         <span class="tag-icon">#</span>{{ tag[0] }}
                         <span class="tag-count">({{ tag[1] | size }})</span>
@@ -67,18 +83,42 @@ permalink: /tags/
                 </div>
             {% endfor %}
         </div>
+    </div>
+</section>
 
-        <!-- Tag Cloud -->
-        <div class="tag-cloud">
-            <h2 class="tag-cloud-title">Quick Navigation</h2>
-            <div class="tag-cloud-items">
-                {% for tag in sorted_tags %}
-                <a href="#{{ tag[0] | slugify }}" class="tag-cloud-item">
-                    #{{ tag[0] }} <span class="tag-cloud-count">{{ tag[1] | size }}</span>
-                </a>
-                {% endfor %}
-            </div>
-        </div>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const filterButtons = document.querySelectorAll('.tag-filter-btn');
+    const tagGroups = document.querySelectorAll('.tag-group');
+    
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const selectedTag = button.dataset.tag;
+            
+            // Update active state
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Filter tag groups
+            tagGroups.forEach(group => {
+                if (selectedTag === 'all') {
+                    group.style.display = 'block';
+                } else if (group.dataset.tagGroup === selectedTag) {
+                    group.style.display = 'block';
+                } else {
+                    group.style.display = 'none';
+                }
+            });
+            
+            // Scroll to tags container
+            document.querySelector('.tags-container').scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+            });
+        });
+    });
+});
+</script>
     </div>
 </section>
 
@@ -218,7 +258,7 @@ permalink: /tags/
 /* === TAG CLOUD === */
 .tag-cloud {
     max-width: 900px;
-    margin: var(--spacing-xl) auto 0;
+    margin: 0 auto var(--spacing-xl);
     padding: var(--spacing-lg);
     background: rgba(20, 29, 43, 0.3);
     border: 1px solid rgba(255, 0, 60, 0.2);
@@ -251,6 +291,7 @@ permalink: /tags/
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.9rem;
     transition: all 0.3s ease;
+    cursor: pointer;
 }
 
 .tag-cloud-item:hover {
@@ -258,6 +299,18 @@ permalink: /tags/
     border-color: var(--accent-cyan);
     box-shadow: 0 0 15px rgba(0, 255, 247, 0.3);
     transform: translateY(-2px);
+}
+
+.tag-cloud-item.active {
+    background: var(--accent-cyan);
+    color: var(--bg-main);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 255, 247, 0.5);
+}
+
+.tag-cloud-item.active .tag-cloud-count {
+    color: var(--bg-main);
+    opacity: 0.8;
 }
 
 .tag-cloud-count {
