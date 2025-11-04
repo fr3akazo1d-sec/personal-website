@@ -23,7 +23,7 @@ events:
   - title: "24h Cybersecurity" 
     type: "meetup"
     date_start: 2025-11-04
-    date_en: 2025-11-05
+    date_end: 2025-11-05
     location: "Lakeside Park, Klagenfurt, Carinthia, Austria"
     url: "https://cyber-night-and-day.at"
     status: confirmed
