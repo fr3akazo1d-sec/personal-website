@@ -2,13 +2,15 @@
 layout: default
 ---
 
+<!-- Mobile Menu Toggle -->
+<button class="mobile-menu-toggle" aria-label="Toggle menu">
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+    <span class="hamburger-line"></span>
+</button>
+
 <!-- Navigation -->
 <nav class="nav-menu" style="position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--bg-main); border-bottom: 1px solid rgba(0, 255, 247, 0.2); padding: 1rem 0;">
-    <button class="mobile-menu-toggle" aria-label="Toggle menu" style="position: absolute; right: 1rem; top: 50%; transform: translateY(-50%);">
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-        <span class="hamburger-line"></span>
-    </button>
     <ul>
         <li><a href="{{ site.baseurl }}/" class="nav-link">Home</a></li>
         <li><a href="{{ site.baseurl }}/index.html#about" class="nav-link">About</a></li>
