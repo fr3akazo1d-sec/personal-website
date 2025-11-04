@@ -10,16 +10,17 @@ events:
     url: "https://defcon.org"
     status: "completed"  # planned, confirmed, attending, completed
     description: "World's largest hacking conference"
-    
+    gallery: "/gallery/#defcon-31"
+
   - title: "DEF CON 33"
     type: "conference"
     date_start: 2025-08-07
-    date_end: 2026-08-10
+    date_end: 2025-08-10
     location: "Las Vegas, Nevada, USA"
     url: "https://defcon.org"
     status: "completed"  # planned, confirmed, attending, completed
     description: "World's largest hacking conference"
-    
+    gallery: "/gallery/#defcon-33"    
   - title: "24h Cybersecurity" 
     type: "meetup"
     date_start: 2025-11-04

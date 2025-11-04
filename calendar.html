@@ -56,8 +56,9 @@ description: Upcoming conferences, trainings, and security events I'm attending
             
             {% for event in sorted_events %}
                 {% assign event_date = event.date_start | date: '%s' %}
+                {% assign event_end_date = event.date_end | date: '%s' %}
                 {% assign is_upcoming = false %}
-                {% if event_date >= now or event.status == 'attending' %}
+                {% if event_end_date >= now or event.status == 'attending' %}
                     {% assign is_upcoming = true %}
                 {% endif %}
                 
@@ -112,6 +113,33 @@ description: Upcoming conferences, trainings, and security events I'm attending
                         {% if event.description %}
                         <p class="event-description">{{ event.description }}</p>
                         {% endif %}
+                        
+                        {% if event.blog_post or event.gallery %}
+                        <div class="event-links">
+                            {% if event.blog_post %}
+                            <a href="{{ event.blog_post }}" class="event-link-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                    <polyline points="10 9 9 9 8 9"/>
+                                </svg>
+                                Read Blog Post
+                            </a>
+                            {% endif %}
+                            {% if event.gallery %}
+                            <a href="{{ event.gallery }}" class="event-link-btn">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width: 16px; height: 16px;">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                                View Gallery
+                            </a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
                 {% endif %}
@@ -130,12 +158,37 @@ description: Upcoming conferences, trainings, and security events I'm attending
             
             <div class="calendar-past-list">
                 {% for event in sorted_events %}
-                    {% assign event_date = event.date_start | date: '%s' %}
-                    {% if event_date < now and event.status == 'completed' %}
+                    {% assign event_end_date = event.date_end | date: '%s' %}
+                    {% if event_end_date < now %}
                     <div class="past-event-item">
-                        <span class="past-event-date">{{ event.date_start | date: "%b %Y" }}</span>
-                        <span class="past-event-title">{{ event.title }}</span>
-                        <span class="past-event-location">{{ event.location }}</span>
+                        <div class="past-event-info">
+                            <span class="past-event-date">{{ event.date_start | date: "%b %Y" }}</span>
+                            <span class="past-event-title">{{ event.title }}</span>
+                            <span class="past-event-location">{{ event.location }}</span>
+                        </div>
+                        {% if event.blog_post or event.gallery %}
+                        <div class="past-event-links">
+                            {% if event.blog_post %}
+                            <a href="{{ event.blog_post }}" class="past-event-link" title="Read Blog Post">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                    <polyline points="14 2 14 8 20 8"/>
+                                    <line x1="16" y1="13" x2="8" y2="13"/>
+                                    <line x1="16" y1="17" x2="8" y2="17"/>
+                                </svg>
+                            </a>
+                            {% endif %}
+                            {% if event.gallery %}
+                            <a href="{{ event.gallery }}" class="past-event-link" title="View Gallery">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                    <circle cx="8.5" cy="8.5" r="1.5"/>
+                                    <polyline points="21 15 16 10 5 21"/>
+                                </svg>
+                            </a>
+                            {% endif %}
+                        </div>
+                        {% endif %}
                     </div>
                     {% endif %}
                 {% endfor %}

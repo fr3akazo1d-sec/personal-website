@@ -62,16 +62,22 @@ description: Red Team Operator & Security Researcher specializing in adversary e
     {% assign now = 'now' | date: '%s' %}
     {% assign sorted_events = site.data.calendar.events | sort: 'date_start' %}
     {% assign next_event = nil %}
+    {% assign is_happening_now = false %}
     {% for event in sorted_events %}
-        {% assign event_date = event.date_start | date: '%s' %}
-        {% if event_date >= now %}
+        {% assign event_start = event.date_start | date: '%s' %}
+        {% assign event_end = event.date_end | date: '%s' %}
+        {% if event_start <= now and event_end >= now %}
+            {% assign next_event = event %}
+            {% assign is_happening_now = true %}
+            {% break %}
+        {% elsif event_start >= now %}
             {% assign next_event = event %}
             {% break %}
         {% endif %}
     {% endfor %}
     
     {% if next_event %}
-    <div class="next-event-banner">
+    <div class="next-event-banner{% if is_happening_now %} event-happening-now{% endif %}">
         <button class="next-event-close" aria-label="Close banner" onclick="document.querySelector('.next-event-banner').style.display='none';sessionStorage.setItem('nextEventBannerClosed','true');event.stopPropagation();">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <line x1="18" y1="6" x2="6" y2="18"/>
@@ -89,9 +95,15 @@ description: Red Team Operator & Security Researcher specializing in adversary e
                     </svg>
                 </div>
                 <div class="next-event-details">
+                    {% if is_happening_now %}
+                    <span class="next-event-label">🔴 Happening Now:</span>
+                    <span class="next-event-title">{{ next_event.title }}</span>
+                    <span class="next-event-date">• {{ next_event.date_start | date: "%b %d" }} - {{ next_event.date_end | date: "%b %d, %Y" }} • {{ next_event.location }}</span>
+                    {% else %}
                     <span class="next-event-label">Next Event:</span>
                     <span class="next-event-title">{{ next_event.title }}</span>
                     <span class="next-event-date">• {{ next_event.date_start | date: "%b %d, %Y" }} • {{ next_event.location }}</span>
+                    {% endif %}
                 </div>
                 <div class="next-event-arrow">
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
