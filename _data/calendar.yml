@@ -27,7 +27,7 @@ events:
     date_end: 2025-11-05
     location: "Lakeside Park, Klagenfurt, Carinthia, Austria"
     url: "https://cyber-night-and-day.at"
-    status: confirmed
+    status: "completed"
     description: " Cyber-Crime and IT-Security conference"
     
   - title: "DEF CON 34"
