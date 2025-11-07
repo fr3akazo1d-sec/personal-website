@@ -21,6 +21,7 @@ events:
     status: "completed"  # planned, confirmed, attending, completed
     description: "World's largest hacking conference"
     gallery: "/gallery/#defcon-33"    
+    
   - title: "24h Cybersecurity" 
     type: "meetup"
     date_start: 2025-11-04
@@ -28,6 +29,24 @@ events:
     location: "Lakeside Park, Klagenfurt, Carinthia, Austria"
     url: "https://cyber-night-and-day.at"
     status: "completed"
+    description: " Cyber-Crime and IT-Security conference"
+
+  - title: "Blackhat Europe" 
+    type: "Conference"
+    date_start: 2025-12-08
+    date_end: 2025-12-11
+    location: "ExCel, London, United Kingdom"
+    url: "https://blackhat.com/eu-25/"
+    status: "not going"
+    description: " Cyber-Crime and IT-Security conference"
+    
+  - title: "39th Choas Communication Congress" 
+    type: "Conference"
+    date_start: 2025-12-27
+    date_end: 2025-12-30
+    location: "Hamburg, Germany"
+    url: "https://events.ccc.de/congress/2025/infos/startpage.html"
+    status: "not going"
     description: " Cyber-Crime and IT-Security conference"
     
   - title: "DEF CON 34"
