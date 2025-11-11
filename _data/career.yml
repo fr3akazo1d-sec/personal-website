@@ -116,14 +116,11 @@ experiences:
       high availability and performance. Planned and executed network upgrades, configuration changes, 
       and equipment replacements with minimal downtime. Provided 24/7 on-call support responding to 
       critical network incidents and outages. Collaborated with security team to implement network 
-      segmentation and access control policies. Developed automation scripts to streamline network 
-      configuration and monitoring tasks.
+      segmentation and access control policies. 
     achievements:
       - Successfully planned and configured new production facility with 125 switches meeting strict uptime requirements
       - Executed critical LAN infrastructure changes achieving zero downtime through careful planning and staging
-      - Reduced network incident response time by 40% through improved monitoring and alerting
       - Obtained CCNA Security and CCNA Routing & Switching certifications
-      - Automated routine network configuration tasks using Python reducing manual effort by 60%
       - Implemented network segmentation improving security posture across production environments
     technologies:
       - Cisco IOS and NX-OS
@@ -279,17 +276,23 @@ courses:
     date: 2022-03
     description: Attacking and Defending Active Directory (Certified Red Team Professional)
     
-  - name: DEF CON 32 Workshop
+  - name: DEF CON 33 Workshop
     full_name: Putting EDRs in Their Place - Killing and Silencing EDR Agents
     provider: DEF CON
     date: 2025-08
     description: Bybassing EDRs. 
     
-  - name: DEF CON 32 Workshop
+  - name: DEF CON 33 Workshop
     full_name: Obfuscation Reloaded - Modern Techniques for Evading Detection
     provider: DEF CON
     date: 2025-08
     description: Obfuscation code for bybassing EDRs. 
+
+  - name: DEF CON 31 Workshop
+    full_name: A C2 Workshop for Modern Red Teaming
+    provider: DEF CON
+    date: 2023-08
+    description: Obfuscation code for bybassing EDRs.
 
 # Learning Platforms
 # Track your journey on various hacking/learning platforms
